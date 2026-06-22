@@ -19,12 +19,11 @@ export const BRAND_SWATCHES: Record<Brand, string> = {
   blush: "#b97e72",
 };
 
-// Logo par marque. TODO(assets) : le logo blush n'est pas encore livré —
-// les deux clés pointent pour l'instant sur le logo actuel. Dès que l'asset
-// blush atterrit dans /public/brand, remplacer la ligne `blush` (one-liner).
+// Logo par marque — lockup horizontal (picto + wordmark) du kit officiel,
+// décliné teal / blush. Le swap suit le toggle visiteur.
 export const BRAND_LOGOS: Record<Brand, string> = {
-  teal: "/brand/logo.png",
-  blush: "/brand/logo.png", // TODO(assets): -> "/brand/logo-blush.png"
+  teal: "/brand/lockup-teal.png",
+  blush: "/brand/lockup-blush.png",
 };
 
 export function isBrand(value: unknown): value is Brand {

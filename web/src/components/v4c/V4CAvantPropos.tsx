@@ -55,7 +55,7 @@ export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) 
           <div className="relative w-full max-w-[460px] aspect-[3/4] border border-[var(--site-text)]/30">
             <Image
               src="/images/emeline-portrait.jpg"
-              alt="Portrait d'Eméline Le Ray, fondatrice et joaillière de Précieuse"
+              alt="Portrait d'Emeline Le Ray, fondatrice et joaillière de Précieuse"
               fill
               sizes="(min-width: 768px) 460px, 90vw"
               className="object-cover"
@@ -63,7 +63,7 @@ export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) 
           </div>
           <div className="mt-3 flex items-baseline justify-between max-w-[460px]">
             <span className={`${garamond} italic text-[13px] tracking-[0.25em] uppercase text-[var(--site-text)]/70`}>
-              Eméline Le Ray
+              Emeline Le Ray
             </span>
             <span className={`${garamond} italic text-[12px] tracking-[0.2em] uppercase text-[var(--site-accent)]`}>
               Bordeaux · MMXXVI
@@ -108,7 +108,7 @@ export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) 
             <Seal />
             <div className="flex flex-col">
               <span className={`${bodoni} italic text-[18px] text-[var(--site-text)]`}>
-                Eméline Le Ray
+                Emeline Le Ray
               </span>
               <span className={`${cormorant} italic text-[13px] text-[var(--site-text)]/65 tracking-wide`}>
                 fondatrice — fondée mai · MMXXV

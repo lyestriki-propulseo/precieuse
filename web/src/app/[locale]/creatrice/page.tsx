@@ -8,7 +8,7 @@ import { pickLocale } from "@/sanity/lib/i18n";
 export const metadata = {
   title: "La créatrice — Précieuse",
   description:
-    "Eméline, joaillière artisanale à Bordeaux — 12 ans à travailler l'or à la main.",
+    "Emeline, joaillière artisanale à Bordeaux — 12 ans à travailler l'or à la main.",
 };
 
 const L = "fr" as const;
@@ -60,8 +60,8 @@ export default async function CreatricePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <LuxeImage
-                src="/images/atelier/bague-en-fabrication.jpg"
-                alt="Bague en cours de fabrication sur l'établi"
+                src="/images/real/bague-pierre-josephine.webp"
+                alt="Bague en or 18 carats sertie d'une pierre — savoir-faire de l'atelier Précieuse, Bordeaux"
                 width={1200}
                 height={1600}
                 aspect="portrait"

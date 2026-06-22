@@ -71,8 +71,8 @@ export const piecesSeed: SeedPiece[] = [
       en: "",
     },
     image: {
-      src: "/images/bijoux-officiels/josephine.jpg",
-      alt: { fr: "Bague Joséphine — entourage diamants", en: "" },
+      src: "/images/real/bague-entouree-josephine.webp",
+      alt: { fr: "Bague Joséphine en or 18 carats, pierre centrale entourée d'un halo de diamants — atelier Précieuse, Bordeaux", en: "" },
     },
   },
   {
@@ -93,8 +93,8 @@ export const piecesSeed: SeedPiece[] = [
       en: "",
     },
     image: {
-      src: "/images/bijoux-officiels/aurore.jpg",
-      alt: { fr: "Bague Aurore — solitaire diamant", en: "" },
+      src: "/images/real/bague-pierre-aurore.webp",
+      alt: { fr: "Bague Aurore en or 18 carats, solitaire posé sur pierre — atelier Précieuse, Bordeaux", en: "" },
     },
   },
   {
@@ -115,8 +115,8 @@ export const piecesSeed: SeedPiece[] = [
       en: "",
     },
     image: {
-      src: "/images/bijoux-officiels/eugenie.png",
-      alt: { fr: "Bague Eugénie — dessin original", en: "" },
+      src: "/images/real/bague-diamant.webp",
+      alt: { fr: "Bague Eugénie en or 18 carats sertie de diamants — atelier Précieuse, Bordeaux", en: "" },
     },
   },
   {
@@ -137,8 +137,8 @@ export const piecesSeed: SeedPiece[] = [
       en: "",
     },
     image: {
-      src: "/images/bijoux-officiels/thelma.jpg",
-      alt: { fr: "Bague Thelma — pierre centrale sculptée", en: "" },
+      src: "/images/real/bague-boule-thelma.webp",
+      alt: { fr: "Bague Thelma en or 18 carats, pierre centrale généreuse à la monture sculpturale — atelier Précieuse, Bordeaux", en: "" },
     },
   },
   {
@@ -159,8 +159,8 @@ export const piecesSeed: SeedPiece[] = [
       en: "",
     },
     image: {
-      src: "/images/bijoux-officiels/louise.jpg",
-      alt: { fr: "Bague Louise — alliance pavée", en: "" },
+      src: "/images/real/bague-pierre-precieuse-perle.webp",
+      alt: { fr: "Bague Louise en or 18 carats, pierre précieuse et perle — atelier Précieuse, Bordeaux", en: "" },
     },
   },
 ];
@@ -175,8 +175,8 @@ export const matieresSeed: SeedMatiere[] = [
       en: "",
     },
     image: {
-      src: "/images/matieres/or-19kt-v2.jpg",
-      alt: { fr: "Anneau d'or 18 carats poli, posé sur un galet de marbre blanc", en: "" },
+      src: "/images/real/bague-pierre-josephine.webp",
+      alt: { fr: "Bague en or 18 carats poli sertie d'une pierre — savoir-faire de l'atelier Précieuse, Bordeaux", en: "" },
     },
     annotationCaveat: { fr: "sourcé et tracé · Kimberley", en: "" },
     page: "p. 05",
@@ -190,8 +190,8 @@ export const matieresSeed: SeedMatiere[] = [
       en: "",
     },
     image: {
-      src: "/images/matieres/diamants-gvs-v2.jpg",
-      alt: { fr: "Diamant taille poire posé sur podium céramique beige", en: "" },
+      src: "/images/real/bague-diamant.webp",
+      alt: { fr: "Bague en or 18 carats sertie de diamants certifiés GIA/HRD — atelier Précieuse, Bordeaux", en: "" },
     },
     annotationCaveat: { fr: "certifiés GIA/HRD", en: "" },
     page: "p. 06",
@@ -205,8 +205,8 @@ export const matieresSeed: SeedMatiere[] = [
       en: "",
     },
     image: {
-      src: "/images/matieres/saphirs-v2.jpg",
-      alt: { fr: "Saphir bleu taille émeraude posé sur podium céramique beige", en: "" },
+      src: "/images/real/bague-pierre-aurore.webp",
+      alt: { fr: "Bague en or 18 carats sertie d'une pierre de couleur — atelier Précieuse, Bordeaux", en: "" },
     },
     annotationCaveat: { fr: "sur commande", en: "" },
     page: "p. 07",
@@ -220,8 +220,8 @@ export const matieresSeed: SeedMatiere[] = [
       en: "",
     },
     image: {
-      src: "/images/matieres/emeraudes-v2.jpg",
-      alt: { fr: "Émeraude verte taille émeraude posée sur podium céramique beige", en: "" },
+      src: "/images/real/bague-entouree-josephine.webp",
+      alt: { fr: "Bague en or 18 carats, pierre de couleur entourée de diamants — atelier Précieuse, Bordeaux", en: "" },
     },
     annotationCaveat: { fr: "vivantes, jamais identiques", en: "" },
     page: "p. 08",
@@ -235,8 +235,8 @@ export const matieresSeed: SeedMatiere[] = [
       en: "",
     },
     image: {
-      src: "/images/matieres/rubis-v2.jpg",
-      alt: { fr: "Rubis rose taille émeraude posé sur podium céramique beige", en: "" },
+      src: "/images/real/bague-rubis.webp",
+      alt: { fr: "Bague en or 18 carats sertie d'un rubis — atelier Précieuse, Bordeaux", en: "" },
     },
     annotationCaveat: { fr: "pierre de cœur", en: "" },
     page: "p. 09",
@@ -291,7 +291,7 @@ export const temoignagesSeed: SeedTemoignage[] = [
   {
     placeholder: true,
     citation: {
-      fr: "Eméline est tout simplement une artiste. Les bijoux qu'elle a créés pour moi se sont révélés magnifiques, le résultat est au-delà de ce que j'avais imaginé. Je suis émue et enthousiasmée.",
+      fr: "Emeline est tout simplement une artiste. Les bijoux qu'elle a créés pour moi se sont révélés magnifiques, le résultat est au-delà de ce que j'avais imaginé. Je suis émue et enthousiasmée.",
       en: "",
     },
     auteur: "Martine B.",
@@ -330,8 +330,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Joséphine",
     subtitle: { fr: "Le joyau familial", en: "" },
     image: {
-      src: "/images/carnet/josephine-vert.jpg",
-      alt: { fr: "Bague Joséphine sur fond vert", en: "" },
+      src: "/images/real/bague-main-josephine.webp",
+      alt: { fr: "Bague Joséphine en or 18 carats portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -349,8 +349,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Aurore",
     subtitle: { fr: "Comme la lumière du matin", en: "" },
     image: {
-      src: "/images/carnet/aurore-fond.jpg",
-      alt: { fr: "Bague Aurore", en: "" },
+      src: "/images/real/bague-main-chaise-aurore.webp",
+      alt: { fr: "Bague Aurore en or 18 carats portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -368,8 +368,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Louise",
     subtitle: { fr: "L'évidence après quatre essais", en: "" },
     image: {
-      src: "/images/carnet/louise-triangles.jpg",
-      alt: { fr: "Bague Louise — deux triangles de diamants", en: "" },
+      src: "/images/real/bague-main-chaise-thelma.webp",
+      alt: { fr: "Bague en or 18 carats et diamants portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -388,8 +388,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Rhodolite & aigue-marine",
     subtitle: { fr: "", en: "" },
     image: {
-      src: "/images/carnet/rhodolite-2021.jpg",
-      alt: { fr: "Bague rhodolite et aigue-marine", en: "" },
+      src: "/images/real/main-chaise-josephine.webp",
+      alt: { fr: "Bague en or 18 carats sertie de pierres de couleur, portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -409,8 +409,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Cocktail de Bordeaux",
     subtitle: { fr: "", en: "" },
     image: {
-      src: "/images/carnet/calcedoine-2021.jpg",
-      alt: { fr: "Bague calcédoine et saphirs", en: "" },
+      src: "/images/real/main-poche-josephine.webp",
+      alt: { fr: "Bague en or 18 carats sertie de pierres de couleur, portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -430,8 +430,8 @@ export const creationsSeed: SeedCreation[] = [
     name: "Santa Maria",
     subtitle: { fr: "", en: "" },
     image: {
-      src: "/images/carnet/santa-maria-bague.jpg",
-      alt: { fr: "Bague aigue-marine Santa Maria", en: "" },
+      src: "/images/real/mains-poche-thelma.webp",
+      alt: { fr: "Bague en or 18 carats sertie d'une aigue-marine, portée à la main — atelier Précieuse, Bordeaux", en: "" },
     },
     story: {
       fr: [
@@ -503,8 +503,8 @@ export const creatricePageSeed: SeedCreatricePage = {
         },
       ],
       image: {
-        src: "/images/atelier/bague-en-fabrication.jpg",
-        alt: { fr: "Bague en cours de fabrication sur l'établi", en: "" },
+        src: "/images/real/deux-mains.webp",
+        alt: { fr: "Deux mains présentant une bague en or 18 carats — geste de l'atelier Précieuse, Bordeaux", en: "" },
       },
     },
     {
@@ -531,8 +531,8 @@ export const creatricePageSeed: SeedCreatricePage = {
 export const homeContentSeed: SeedHomeContent = {
   hero: {
     image: {
-      src: "/images/gemmyo.jpg",
-      alt: { fr: "Bijou Précieuse en vitrine", en: "" },
+      src: "/images/real/buste-thelma-louise.webp",
+      alt: { fr: "Bagues Thelma et Louise en or 18 carats portées — création de l'atelier Précieuse, Bordeaux", en: "" },
     },
     eyebrow: { fr: "Un atelier, à Bordeaux", en: "" },
     headline: { fr: "Précieuse", en: "" },

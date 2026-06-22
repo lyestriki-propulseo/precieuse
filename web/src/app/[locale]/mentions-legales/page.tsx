@@ -18,7 +18,7 @@ export default async function MentionsLegalesPage() {
     <LegalPage title={title} overline="Informations légales">
       <h2>Éditeur</h2>
       <p>
-        Le site {brand} est édité par Eméline [Nom de famille], joaillière
+        Le site {brand} est édité par Emeline [Nom de famille], joaillière
         artisanale, immatriculée [SIRET — à compléter].
       </p>
       <h2>Hébergement</h2>

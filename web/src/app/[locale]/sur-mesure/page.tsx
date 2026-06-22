@@ -57,8 +57,8 @@ export default async function BespokePage() {
             </div>
             <Reveal delay={0.2}>
               <LuxeImage
-                src="/images/atelier/esquisses-amethyste.jpg"
-                alt="Esquisses de bijoux et améthyste brute sur l'établi"
+                src="/images/real/bague-entouree-josephine.webp"
+                alt="Bague en or 18 carats, pierre entourée de diamants — création sur-mesure de l'atelier Précieuse, Bordeaux"
                 width={1080}
                 height={1440}
                 aspect="portrait"
@@ -102,8 +102,8 @@ export default async function BespokePage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
             <Reveal>
               <LuxeImage
-                src="/images/atelier/dessin-aquarelle.jpg"
-                alt="Dessin aquarelle original — bijou sur-mesure"
+                src="/images/real/bague-pierre-aurore.webp"
+                alt="Bague Aurore en or 18 carats sur pierre — création sur-mesure de l'atelier Précieuse, Bordeaux"
                 width={1080}
                 height={1920}
                 aspect="portrait"

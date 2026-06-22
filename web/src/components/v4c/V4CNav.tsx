@@ -27,10 +27,10 @@ export function V4CNav({ links }: { links: NavLink[] }) {
           <Image
             src={logoForBrand(brand)}
             alt="Précieuse — Joaillerie artisanale, Bordeaux"
-            width={420}
-            height={140}
+            width={560}
+            height={200}
             priority
-            className="h-9 w-auto lg:h-10"
+            className="h-11 w-auto lg:h-12"
           />
         </Link>
 

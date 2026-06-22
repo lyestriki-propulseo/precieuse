@@ -9,7 +9,7 @@ import { FOOTER_FONTS } from "./data";
 const { garamond, caveat, inter } = FOOTER_FONTS;
 
 // Non-CMS chrome kept inline (decorative · not part of the content model yet).
-const FOUNDER = "Eméline";
+const FOUNDER = "Emeline";
 const FOUNDED = "MMXIX";
 const HOURS = "sur rendez-vous · mardi–samedi";
 

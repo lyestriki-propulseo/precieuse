@@ -26,7 +26,7 @@ import { toFooterVM, toNavLinks } from "@/sanity/lib/view-models";
 export const metadata = {
   title: "Le Carnet — Précieuse · Joaillerie artisanale, Bordeaux",
   description:
-    "Feuilletez le carnet d'atelier d'Eméline — pièces dessinées à la main, or 18kt, Bordeaux MMXXVI.",
+    "Feuilletez le carnet d'atelier d'Emeline — pièces dessinées à la main, or 18kt, Bordeaux MMXXVI.",
 };
 
 const L = "fr" as const;

@@ -43,7 +43,7 @@ export function V4CCreationsCTA() {
 
         {/* Signature manuscrite */}
         <p className={`${caveat} text-[18px] text-[var(--site-caveat)]/70 italic mt-12`}>
-          — Eméline répond elle-même, depuis l&apos;atelier de Bordeaux
+          — Emeline répond elle-même, depuis l&apos;atelier de Bordeaux
         </p>
       </div>
     </div>
