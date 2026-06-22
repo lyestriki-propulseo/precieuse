@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { logoForBrand } from "@/components/brand/brand";
+import { useBrand } from "@/components/brand/BrandProvider";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
@@ -11,6 +13,7 @@ type NavLink = { label: string; href: string };
 
 export function V4CNav({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
+  const { brand } = useBrand();
   const navLinks = links;
 
   return (
@@ -22,7 +25,7 @@ export function V4CNav({ links }: { links: NavLink[] }) {
           className="relative block transition-opacity hover:opacity-70"
         >
           <Image
-            src="/brand/logo.png"
+            src={logoForBrand(brand)}
             alt="Précieuse — Joaillerie artisanale, Bordeaux"
             width={420}
             height={140}

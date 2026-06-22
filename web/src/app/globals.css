@@ -60,13 +60,28 @@
 }
 
 :root {
+  /* ─── Toggle couleur visiteur (teal ↔ blush) ──────────────────────────
+     Accent de marque pilotable par l'attribut `data-brand` sur <html>.
+     Le fond reste crème ; seul l'accent (et plus tard le logo) change.
+     Valeurs faciles à ajuster ici. Défaut = teal (rappel du logo pétrole). */
+  --brand-accent-teal: #125e5e;
+  --brand-accent-teal-strong: #0d4747;
+  --brand-accent-blush: #b97e72;
+  --brand-accent-blush-strong: #9c6055;
+
+  /* Rôle « accent de marque » — résolu selon data-brand (défaut teal). */
+  --brand-accent: var(--brand-accent-teal);
+  --brand-accent-strong: var(--brand-accent-teal-strong);
+
   /* Précieuse brand tokens — direction S1 « L'Art de la Lumière » */
   --cream: #fbf8f5;
-  --raspberry: #bd0762;
+  /* Accents luxe routés sur l'accent de marque pour suivre le toggle.
+     (anciennes valeurs : raspberry #bd0762, tertiary #c9a74d) */
+  --raspberry: var(--brand-accent);
   --raspberry-foreground: oklch(0.985 0 0);
   --gold-whisper: oklch(0.78 0.07 85);
   /* Stitch S3 tokens */
-  --tertiary: #c9a74d;
+  --tertiary: var(--brand-accent);
   --surface-dim: #ded8e0;
   --surface-container-low: #f4ede9;
   --inverse-surface: #1d1b20;
@@ -105,6 +120,16 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* ─── Résolution de l'accent selon le choix visiteur ─── */
+[data-brand="teal"] {
+  --brand-accent: var(--brand-accent-teal);
+  --brand-accent-strong: var(--brand-accent-teal-strong);
+}
+[data-brand="blush"] {
+  --brand-accent: var(--brand-accent-blush);
+  --brand-accent-strong: var(--brand-accent-blush-strong);
 }
 
 .dark {

@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { logoForBrand } from "@/components/brand/brand";
+import { useBrand } from "@/components/brand/BrandProvider";
 import { FOOTER_FONTS } from "./data";
 
 const { garamond, caveat, inter } = FOOTER_FONTS;
@@ -38,13 +42,14 @@ function MapLisbonne() {
 }
 
 export function V4CFooterH({ footer }: { footer: FooterVM }) {
+  const { brand } = useBrand();
   return (
     <footer className="relative bg-[var(--site-text)] text-[var(--site-bg)] py-9 px-8 lg:px-16">
       <div className="mx-auto max-w-[1100px]">
         {/* Logo en tête, centré */}
         <div className="flex justify-center mb-6 pb-5 border-b border-[var(--site-bg)]/15">
           <Image
-            src="/brand/logo.png"
+            src={logoForBrand(brand)}
             alt="Précieuse — Joaillerie artisanale, Bordeaux"
             width={420}
             height={140}

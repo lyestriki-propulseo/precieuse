@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Caveat, Cormorant_Garamond, EB_Garamond, Inter, JetBrains_Mono, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { BrandProvider } from "@/components/brand/BrandProvider";
+import { BrandToggle } from "@/components/brand/BrandToggle";
+import { BRAND_STORAGE_KEY, DEFAULT_BRAND } from "@/components/brand/brand";
+
+// Pose `data-brand` AVANT le paint depuis localStorage → pas de flash d'accent.
+const brandNoFlashScript = `(function(){try{var b=localStorage.getItem(${JSON.stringify(
+  BRAND_STORAGE_KEY,
+)});if(b!=="teal"&&b!=="blush"){b=${JSON.stringify(
+  DEFAULT_BRAND,
+)};}document.documentElement.setAttribute("data-brand",b);}catch(e){document.documentElement.setAttribute("data-brand",${JSON.stringify(
+  DEFAULT_BRAND,
+)});}})();`;
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -75,10 +87,17 @@ export default function RootLayout({
     // TODO Phase 5 : `lang` deviendra dynamique via next-intl quand EN/PT seront actifs.
     <html
       lang="fr"
+      data-brand={DEFAULT_BRAND}
       className={`${playfair.variable} ${bodoni.variable} ${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable} ${ebGaramond.variable} ${manrope.variable} ${caveat.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: brandNoFlashScript }} />
+      </head>
       <body className="bg-cream text-foreground flex min-h-full flex-col font-sans">
-        {children}
+        <BrandProvider>
+          {children}
+          <BrandToggle />
+        </BrandProvider>
       </body>
     </html>
   );
