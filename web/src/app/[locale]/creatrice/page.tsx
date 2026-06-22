@@ -81,7 +81,9 @@ export default async function CreatricePage() {
               </Reveal>
               <Reveal delay={0.15}>
                 <div className="text-foreground/75 mt-10 space-y-6 text-lg leading-relaxed font-light">
-                  <p>{pickLocale(parcours?.body, L)}</p>
+                  {(parcours?.body ?? []).map((p, i) => (
+                    <p key={i}>{pickLocale(p, L)}</p>
+                  ))}
                 </div>
               </Reveal>
             </div>
@@ -101,9 +103,11 @@ export default async function CreatricePage() {
             </Heading>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="text-foreground/75 mt-10 text-lg leading-relaxed font-light">
-              {pickLocale(philosophie?.body, L)}
-            </p>
+            <div className="text-foreground/75 mt-10 space-y-6 text-lg leading-relaxed font-light">
+              {(philosophie?.body ?? []).map((p, i) => (
+                <p key={i}>{pickLocale(p, L)}</p>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={0.3}>
             <blockquote className="border-raspberry/30 mt-12 border-l-2 pl-6 italic">

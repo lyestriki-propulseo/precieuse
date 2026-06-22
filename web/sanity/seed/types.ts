@@ -85,7 +85,8 @@ export type SeedCreation = {
 export type SeedCreatriceSection = {
   overline: LocalizedString;
   title: LocalizedString;
-  body: LocalizedString;
+  /** One localized value per rendered paragraph. */
+  body: LocalizedString[];
   image?: SeedImage;
 };
 

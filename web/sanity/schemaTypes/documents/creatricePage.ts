@@ -37,7 +37,12 @@ export const creatricePage = defineType({
               type: "localizedString",
             }),
             defineField({ name: "title", title: "Titre", type: "localizedString" }),
-            defineField({ name: "body", title: "Texte", type: "localizedText" }),
+            defineField({
+              name: "body",
+              title: "Paragraphes",
+              type: "array",
+              of: [{ type: "localizedText" }],
+            }),
             defineField({
               name: "image",
               title: "Image",

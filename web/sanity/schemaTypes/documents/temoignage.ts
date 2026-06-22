@@ -26,7 +26,12 @@ export const temoignage = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({ name: "ville", title: "Ville", type: "string" }),
-    defineField({ name: "date", title: "Date", type: "date" }),
+    defineField({
+      name: "date",
+      title: "Date",
+      type: "string",
+      description: "Date affichée, format libre (ex. « 18 mars 2025 »).",
+    }),
     defineField({
       name: "piece",
       title: "Pièce associée",

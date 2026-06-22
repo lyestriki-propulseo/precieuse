@@ -37,6 +37,10 @@ function Seal() {
 }
 
 export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) {
+  // Heading = mot d'attaque en capitales (« Atelier ») + marque en italique
+  // (« Précieuse »). On le pilote depuis le contenu en gardant le traitement.
+  const [headingLead, ...headingRest] = avantPropos.heading.trim().split(" ");
+  const headingBrand = headingRest.join(" ");
   const PAIRES = avantPropos.pairs.map((p, i) => ({
     roman: ROMAN[i] ?? "",
     pas: p.pas,
@@ -74,11 +78,11 @@ export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) 
 
           <div className="flex flex-col items-start mb-10">
             <span className={`${bodoni} text-[34px] tracking-[0.18em] uppercase text-[var(--site-text)] leading-none`}>
-              Maison
+              {headingLead}
             </span>
             <div className="my-3"><Filigrane /></div>
             <span className={`${bodoni} italic text-[52px] text-[var(--site-text)] leading-none`}>
-              Précieuse
+              {headingBrand}
             </span>
           </div>
 

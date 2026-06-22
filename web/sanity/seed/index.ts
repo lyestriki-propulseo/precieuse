@@ -295,6 +295,8 @@ export const temoignagesSeed: SeedTemoignage[] = [
       en: "",
     },
     auteur: "Martine B.",
+    ville: "Bordeaux",
+    date: "18 mars 2025",
     context: { fr: "Création sur-mesure", en: "" },
   },
   {
@@ -304,6 +306,8 @@ export const temoignagesSeed: SeedTemoignage[] = [
       en: "",
     },
     auteur: "Sandrine L.",
+    ville: "Lyon",
+    date: "3 octobre 2024",
     context: { fr: "Bague serpentine sur-mesure", en: "" },
   },
   {
@@ -313,6 +317,8 @@ export const temoignagesSeed: SeedTemoignage[] = [
       en: "",
     },
     auteur: "Camille R.",
+    ville: "Paris",
+    date: "12 février 2025",
     context: { fr: "Modèle Joséphine", en: "" },
   },
 ];
@@ -486,10 +492,16 @@ export const creatricePageSeed: SeedCreatricePage = {
     {
       overline: { fr: "Le parcours", en: "" },
       title: { fr: "De la formation à l'atelier", en: "" },
-      body: {
-        fr: "Formation en joaillerie, puis douze années à pratiquer chaque technique au quotidien — fonte à cire perdue, sertissage, polissage main. Chaque bague que je crée passe par mes mains, du dessin initial au polissage final. C'est exigeant, c'est précis, c'est lent. Et c'est ce qui rend chaque pièce unique et pérenne.",
-        en: "",
-      },
+      body: [
+        {
+          fr: "Formation en joaillerie, puis douze années à pratiquer chaque technique au quotidien — fonte à cire perdue, sertissage, polissage main. Chaque bague que je crée passe par mes mains, du dessin initial au polissage final.",
+          en: "",
+        },
+        {
+          fr: "C'est exigeant, c'est précis, c'est lent. Et c'est ce qui rend chaque pièce unique et pérenne.",
+          en: "",
+        },
+      ],
       image: {
         src: "/images/atelier/bague-en-fabrication.jpg",
         alt: { fr: "Bague en cours de fabrication sur l'établi", en: "" },
@@ -498,10 +510,16 @@ export const creatricePageSeed: SeedCreatricePage = {
     {
       overline: { fr: "La philosophie", en: "" },
       title: { fr: "Pas de compromis, pas de raccourci.", en: "" },
-      body: {
-        fr: "Il y a des jours de doutes. Mais c'est dans ces moments-là que je me recentre sur l'essentiel : créer des bijoux qui racontent votre histoire, qui deviennent une part de vous. Pas de compromis sur la matière, pas de raccourci sur le savoir-faire. Précieuse, c'est cela : la transparence de l'artisanat, la confiance du geste.",
-        en: "",
-      },
+      body: [
+        {
+          fr: "Il y a des jours de doutes. Mais c'est dans ces moments-là que je me recentre sur l'essentiel : créer des bijoux qui racontent votre histoire, qui deviennent une part de vous.",
+          en: "",
+        },
+        {
+          fr: "Pas de compromis sur la matière, pas de raccourci sur le savoir-faire. Précieuse, c'est cela : la transparence de l'artisanat, la confiance du geste.",
+          en: "",
+        },
+      ],
     },
   ],
   quote: {
