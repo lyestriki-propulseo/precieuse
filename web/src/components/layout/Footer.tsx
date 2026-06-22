@@ -2,9 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FOOTER_LINKS, SITE } from "@/lib/content/site";
 
-export function Footer() {
+type FooterLink = { label: string; href: string };
+
+type FooterVM = {
+  brand: string;
+  email: string;
+  instagram: string;
+  legalNav: FooterLink[];
+};
+
+export function Footer({ footer }: { footer: FooterVM }) {
   const pathname = usePathname();
   if (pathname === "/fr" || pathname === "/fr/" || pathname.startsWith("/fr/v2") || pathname.startsWith("/fr/v3") || pathname.startsWith("/fr/v4") || pathname.startsWith("/fr/preview")) return null;
 
@@ -12,7 +20,7 @@ export function Footer() {
     <footer className="bg-inverse-surface text-white pt-20">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 border-b border-white/15 px-6 pb-16 sm:px-10 md:grid-cols-3 lg:px-16">
         <div className="flex flex-col gap-6">
-          <p className="font-display-lg text-2xl text-white">{SITE.brand}</p>
+          <p className="font-display-lg text-2xl text-white">{footer.brand}</p>
           <p className="font-technical-label tracking-[0.15em] uppercase leading-relaxed text-white/60">
             Atelier Bordeaux / France
             <br />
@@ -22,7 +30,7 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <a
-              href={SITE.instagram}
+              href={footer.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="font-technical-label tracking-[0.15em] uppercase hover:text-tertiary transition-colors"
@@ -45,7 +53,7 @@ export function Footer() {
           <span className="font-technical-label tracking-[0.15em] uppercase text-tertiary">
             Information
           </span>
-          {FOOTER_LINKS.map((l) => (
+          {footer.legalNav.map((l) => (
             <Link
               key={l.href}
               href={l.href}
@@ -64,17 +72,17 @@ export function Footer() {
             Recevez les mises à jour de l&apos;atelier et un accès en avant-première aux pièces uniques.
           </p>
           <a
-            href={`mailto:${SITE.email}`}
+            href={`mailto:${footer.email}`}
             className="font-technical-label tracking-[0.15em] uppercase border-b border-white/40 pb-2 hover:text-tertiary hover:border-tertiary transition-colors w-fit"
           >
-            {SITE.email}
+            {footer.email}
           </a>
         </div>
       </div>
 
       <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-6 sm:flex-row sm:justify-between sm:px-10 lg:px-16">
         <span className="font-technical-label tracking-[0.15em] uppercase text-white/30">
-          © {new Date().getFullYear()} {SITE.brand} · Artisanat d&apos;archive
+          © {new Date().getFullYear()} {footer.brand} · Artisanat d&apos;archive
         </span>
         <span className="font-technical-label tracking-[0.15em] uppercase text-white/30">
           France / Bordeaux

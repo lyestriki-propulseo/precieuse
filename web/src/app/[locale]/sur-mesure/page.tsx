@@ -2,8 +2,10 @@ import Link from "next/link";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { BESPOKE_PROCESS } from "@/lib/content/process";
-import { SITE } from "@/lib/content/site";
+import { getProcess, getSiteSettings } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
+
+const L = "fr" as const;
 
 const ctaPrimary = cn(
   buttonVariants({ size: "lg" }),
@@ -20,7 +22,17 @@ export const metadata = {
     "Créer un bijou unique pensé ensemble, de la première esquisse au bijou final.",
 };
 
-export default function BespokePage() {
+export default async function BespokePage() {
+  const [process, settings] = await Promise.all([
+    getProcess(),
+    getSiteSettings(),
+  ]);
+  const BESPOKE_PROCESS = process.map((s) => ({
+    number: s.number,
+    title: pickLocale(s.title, L),
+    description: pickLocale(s.description, L),
+  }));
+  const whatsapp = settings.whatsapp ?? "";
   return (
     <>
       <Section spacing="default" tone="cream">
@@ -153,7 +165,7 @@ export default function BespokePage() {
                 Prendre rendez-vous
               </Link>
               <a
-                href={SITE.whatsapp}
+                href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={ctaGhost}

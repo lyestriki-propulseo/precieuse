@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SIGNATURES, FONT } from "./data";
+import { FONT } from "./data";
 
 const { garamond, caveat, inter } = FONT;
 
@@ -12,7 +12,23 @@ const STATUS_LABEL: Record<"vendue" | "disponible" | "signature", string> = {
   signature: "Pièce signature",
 };
 
-export function V4CCreationsSignatures() {
+export type SignatureVM = {
+  id: string;
+  name: string;
+  subtitle: string;
+  image: string;
+  story: string[];
+  matiere: string;
+  year: string;
+  status: "vendue" | "disponible" | "signature";
+};
+
+export function V4CCreationsSignatures({
+  signatures,
+}: {
+  signatures: SignatureVM[];
+}) {
+  const SIGNATURES = signatures;
   return (
     <div className="relative px-8 lg:px-16 py-20 lg:py-28">
       <div className="mx-auto max-w-[1340px]">

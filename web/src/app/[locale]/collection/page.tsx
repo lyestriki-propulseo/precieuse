@@ -1,13 +1,25 @@
 import { Container, Heading, Reveal, Section } from "@/components/luxe";
 import { ProductCard } from "@/components/sections/ProductCard";
-import { PRODUCTS } from "@/lib/content/products";
+import { getPieces } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
 
 export const metadata = {
   title: "Collection — Précieuse",
   description: "Cinq modèles intemporels en or 18kt et diamants GVS.",
 };
 
-export default function CollectionPage() {
+const L = "fr" as const;
+
+export default async function CollectionPage() {
+  const pieces = await getPieces();
+  const PRODUCTS = pieces.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    tagline: pickLocale(p.tagline, L),
+    price: pickLocale(p.priceLabel, L),
+    image: p.image.src,
+    imageAlt: pickLocale(p.image.alt, L),
+  }));
   return (
     <>
       <Section spacing="default" tone="cream">

@@ -9,6 +9,8 @@ import { V4CSeriesC } from "@/components/v4c/series-variants/V4CSeriesC";
 import { V4CSeriesD } from "@/components/v4c/series-variants/V4CSeriesD";
 import { V4CSeriesE } from "@/components/v4c/series-variants/V4CSeriesE";
 import { V4CSeriesF } from "@/components/v4c/series-variants/V4CSeriesF";
+import { piecesSeed } from "@/sanity/seed";
+import { pickLocale } from "@/sanity/lib/i18n";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
@@ -24,13 +26,25 @@ const VARIANTS: { key: VariantKey; label: string; description: string }[] = [
   { key: "F", label: "Variante F", description: "Coverflow premium · focus centre, peek latéral, auto-play 7s" },
 ];
 
+const piecesVM = piecesSeed.map((p) => ({
+  slug: p.slug,
+  name: p.name,
+  tagline: pickLocale(p.tagline, "fr"),
+  price: pickLocale(p.priceLabel, "fr"),
+  description: pickLocale(p.description, "fr"),
+  materials: pickLocale(p.materials, "fr"),
+  story: pickLocale(p.story, "fr"),
+  image: p.image.src,
+  imageAlt: pickLocale(p.image.alt, "fr"),
+}));
+
 const COMPONENTS: Record<VariantKey, React.ReactNode> = {
   A: <V4CSeriesA />,
   B: <V4CSeriesB />,
   C: <V4CSeriesC />,
   D: <V4CSeriesD />,
   E: <V4CSeriesE />,
-  F: <V4CSeriesF />,
+  F: <V4CSeriesF pieces={piecesVM} />,
 };
 
 export default function CollectionPreviewPage() {

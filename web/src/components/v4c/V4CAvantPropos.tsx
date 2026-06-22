@@ -4,12 +4,12 @@ const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const bodoni = "font-[family-name:var(--font-bodoni)]";
 const cormorant = "font-[family-name:var(--font-cormorant)]";
 
-const PAIRES = [
-  { roman: "i", pas: "pas de saison", mais: "Des pièces dessinées pour traverser le temps." },
-  { roman: "ii", pas: "pas de stock", mais: "Une fabrication à l'unité, à partir d'une commande." },
-  { roman: "iii", pas: "pas d'usine", mais: "Une main, un atelier, un geste — du dessin au sertissage." },
-  { roman: "iv", pas: "pas d'or anonyme", mais: "Or 18kt traçable, pierres précieuses choisies une à une." },
-];
+const ROMAN = ["i", "ii", "iii", "iv", "v", "vi"] as const;
+
+type AvantProposVM = {
+  heading: string;
+  pairs: { pas: string; mais: string }[];
+};
 
 function Filigrane() {
   return (
@@ -36,7 +36,12 @@ function Seal() {
   );
 }
 
-export function V4CAvantPropos() {
+export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) {
+  const PAIRES = avantPropos.pairs.map((p, i) => ({
+    roman: ROMAN[i] ?? "",
+    pas: p.pas,
+    mais: p.mais,
+  }));
   return (
     <section className="relative bg-[var(--site-bg)] py-20 px-8 lg:px-16">
       <div className="absolute top-0 left-0 right-0 border-t border-[var(--site-text)]/25" />

@@ -621,9 +621,8 @@ export const navigationSeed: SeedNavigation = {
   links: [
     { label: { fr: "La Collection", en: "" }, href: "/fr/collection" },
     { label: { fr: "Le Carnet", en: "" }, href: "/fr/carnet" },
-    { label: { fr: "La Créatrice", en: "" }, href: "/fr/creatrice" },
-    { label: { fr: "Sur-mesure", en: "" }, href: "/fr/sur-mesure" },
-    { label: { fr: "Contact", en: "" }, href: "/fr/contact" },
+    { label: { fr: "L'Atelier", en: "" }, href: "/fr/creatrice" },
+    { label: { fr: "Sur-Mesure", en: "" }, href: "/fr/sur-mesure" },
   ],
 };
 
@@ -631,8 +630,8 @@ export const footerSeed: SeedFooter = {
   primaryNav: [
     { label: { fr: "La Collection", en: "" }, href: "/fr/collection" },
     { label: { fr: "Le Carnet", en: "" }, href: "/fr/carnet" },
-    { label: { fr: "La Créatrice", en: "" }, href: "/fr/creatrice" },
-    { label: { fr: "Sur-mesure", en: "" }, href: "/fr/sur-mesure" },
+    { label: { fr: "L'Atelier", en: "" }, href: "/fr/creatrice" },
+    { label: { fr: "Sur-Mesure", en: "" }, href: "/fr/sur-mesure" },
   ],
   legalNav: [
     { label: { fr: "Mentions légales", en: "" }, href: "/fr/mentions-legales" },

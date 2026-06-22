@@ -1,6 +1,6 @@
 import { Container, Heading, Reveal, Section } from "@/components/luxe";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { SITE } from "@/lib/content/site";
+import { getSiteSettings } from "@/sanity/lib/content";
 
 export const metadata = {
   title: "Contact — Précieuse",
@@ -8,7 +8,11 @@ export const metadata = {
     "Pour discuter de votre projet, sur-mesure ou collection, ou simplement dire bonjour.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+  const email = settings.email;
+  const whatsapp = settings.whatsapp ?? "";
+  const instagram = settings.instagram ?? "";
   return (
     <Section spacing="default" tone="cream">
       <Container>
@@ -30,10 +34,10 @@ export default function ContactPage() {
                     Email
                   </span>
                   <a
-                    href={`mailto:${SITE.email}`}
+                    href={`mailto:${email}`}
                     className="hover:text-raspberry mt-1 block text-base transition-colors"
                   >
-                    {SITE.email}
+                    {email}
                   </a>
                 </li>
                 <li>
@@ -41,7 +45,7 @@ export default function ContactPage() {
                     WhatsApp
                   </span>
                   <a
-                    href={SITE.whatsapp}
+                    href={whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-raspberry mt-1 block text-base transition-colors"
@@ -54,7 +58,7 @@ export default function ContactPage() {
                     Instagram
                   </span>
                   <a
-                    href={SITE.instagram}
+                    href={instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-raspberry mt-1 block text-base transition-colors"

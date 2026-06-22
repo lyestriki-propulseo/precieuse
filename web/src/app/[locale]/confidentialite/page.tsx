@@ -1,12 +1,21 @@
 import { LegalPage } from "@/components/sections/LegalPage";
-import { SITE } from "@/lib/content/site";
+import { getLegalPage, getSiteSettings } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
 
 export const metadata = { title: "Politique de confidentialité — Précieuse" };
 
-export default function ConfidentialitePage() {
+const L = "fr" as const;
+
+export default async function ConfidentialitePage() {
+  const [settings, page] = await Promise.all([
+    getSiteSettings(),
+    getLegalPage("confidentialite"),
+  ]);
+  const email = settings.email;
+  const title = pickLocale(page?.title, L) || "Politique de confidentialité";
   return (
     <LegalPage
-      title="Politique de confidentialité"
+      title={title}
       overline="Vos données personnelles"
     >
       <h2>Données collectées</h2>
@@ -24,7 +33,7 @@ export default function ConfidentialitePage() {
       <p>
         Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de
         rectification et de suppression de vos données. Pour les exercer,
-        contactez-nous à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+        contactez-nous à <a href={`mailto:${email}`}>{email}</a>.
       </p>
       <h2>Cookies</h2>
       <p>

@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { PRODUCTS, getProduct } from "@/lib/content/products";
+import { getPiece, getPieces } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
+
+const L = "fr" as const;
 
 const ctaPrimary = cn(
   buttonVariants({ size: "lg" }),
@@ -14,19 +17,20 @@ const ctaGhost = cn(
   "rounded-full px-6 h-auto py-3",
 );
 
-export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const pieces = await getPieces();
+  return pieces.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/collection/[slug]">) {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) return {};
+  const piece = await getPiece(slug);
+  if (!piece) return {};
   return {
-    title: `${product.name} — Précieuse`,
-    description: product.tagline,
+    title: `${piece.name} — Précieuse`,
+    description: pickLocale(piece.tagline, L),
   };
 }
 
@@ -34,8 +38,20 @@ export default async function ProductPage({
   params,
 }: PageProps<"/[locale]/collection/[slug]">) {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) notFound();
+  const piece = await getPiece(slug);
+  if (!piece) notFound();
+
+  const product = {
+    slug: piece.slug,
+    name: piece.name,
+    tagline: pickLocale(piece.tagline, L),
+    price: pickLocale(piece.priceLabel, L),
+    description: pickLocale(piece.description, L),
+    materials: pickLocale(piece.materials, L),
+    story: pickLocale(piece.story, L),
+    image: piece.image.src,
+    imageAlt: pickLocale(piece.image.alt, L),
+  };
 
   return (
     <>

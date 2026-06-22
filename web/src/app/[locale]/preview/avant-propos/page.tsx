@@ -8,6 +8,8 @@ import { V4CAvantProposB } from "@/components/v4c/avantpropos-variants/V4CAvantP
 import { V4CAvantProposC } from "@/components/v4c/avantpropos-variants/V4CAvantProposC";
 import { V4CAvantProposD } from "@/components/v4c/avantpropos-variants/V4CAvantProposD";
 import { V4CAvantProposE } from "@/components/v4c/avantpropos-variants/V4CAvantProposE";
+import { homeContentSeed } from "@/sanity/seed";
+import { pickLocale } from "@/sanity/lib/i18n";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
@@ -22,12 +24,20 @@ const VARIANTS: { key: VariantKey; label: string; description: string }[] = [
   { key: "E", label: "E — Mix final ★", description: "Portrait Luxe A (border fin gris + légende EMÉLINE LE RAY / LISBOA · MMXXVI) + texte C (MAISON · filigrane · Précieuse italic + paires romaines + sceau atelier)" },
 ];
 
+const avantProposVM = {
+  heading: pickLocale(homeContentSeed.avantPropos.heading, "fr"),
+  pairs: homeContentSeed.avantPropos.pairs.map((p) => ({
+    pas: pickLocale(p.pas, "fr"),
+    mais: pickLocale(p.mais, "fr"),
+  })),
+};
+
 const COMPONENTS: Record<VariantKey, React.ReactNode> = {
   A: <V4CAvantProposA />,
   B: <V4CAvantProposB />,
   C: <V4CAvantProposC />,
   D: <V4CAvantProposD />,
-  E: <V4CAvantProposE />,
+  E: <V4CAvantProposE avantPropos={avantProposVM} />,
 };
 
 export default function AvantProposPreviewPage() {

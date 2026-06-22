@@ -6,12 +6,20 @@ const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
 const inter = "font-[family-name:var(--font-inter)]";
 
-export function V4CHero() {
+type HeroVM = {
+  image: string;
+  imageAlt: string;
+  eyebrow: string;
+  headline: string;
+  sub: string;
+};
+
+export function V4CHero({ hero }: { hero: HeroVM }) {
   return (
     <section className="relative min-h-screen pt-16 overflow-hidden flex flex-col">
       <div aria-hidden="true" className="absolute inset-0">
         <Image
-          src="/images/gemmyo.jpg"
+          src={hero.image}
           alt=""
           fill
           sizes="100vw"
@@ -71,7 +79,7 @@ export function V4CHero() {
                   "0 1px 0 rgba(255,255,255,0.40), 0 0 32px rgba(255,225,170,0.55), 0 4px 18px rgba(20,10,4,0.85), 0 16px 60px rgba(20,10,4,0.7)",
               }}
             >
-              Précieuse
+              {hero.headline}
             </h1>
           </div>
 

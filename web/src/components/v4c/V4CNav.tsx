@@ -7,15 +7,11 @@ import { usePathname } from "next/navigation";
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
 
-const navLinks = [
-  { label: "La Collection", href: "/fr/collection" },
-  { label: "Le Carnet", href: "/fr/carnet" },
-  { label: "L'Atelier", href: "/fr/creatrice" },
-  { label: "Sur-Mesure", href: "/fr/sur-mesure" },
-];
+type NavLink = { label: string; href: string };
 
-export function V4CNav() {
+export function V4CNav({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
+  const navLinks = links;
 
   return (
     <header className="fixed top-0 z-50 w-full bg-[var(--site-bg)]/95 backdrop-blur-sm border-b border-[var(--site-text)]/20">
