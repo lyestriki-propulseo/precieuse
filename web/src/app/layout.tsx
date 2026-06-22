@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Caveat, Cormorant_Garamond, EB_Garamond, Inter, JetBrains_Mono, Manrope, Playfair_Display } from "next/font/google";
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
-import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -81,10 +78,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${bodoni.variable} ${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable} ${ebGaramond.variable} ${manrope.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="bg-cream text-foreground flex min-h-full flex-col font-sans">
-        <Nav />
-        <main className="flex flex-1 flex-col pt-16">{children}</main>
-        <Footer />
-        <Toaster richColors position="bottom-right" />
+        {children}
       </body>
     </html>
   );
