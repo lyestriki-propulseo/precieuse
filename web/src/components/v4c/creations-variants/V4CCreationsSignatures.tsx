@@ -48,7 +48,7 @@ export function V4CCreationsSignatures() {
                     />
                   </div>
                   <span className={`${garamond} italic text-[12px] tracking-[0.3em] text-[var(--site-accent)] mt-4 block`}>
-                    {piece.year} · LISBOA
+                    {piece.year} · BORDEAUX
                   </span>
                 </div>
 

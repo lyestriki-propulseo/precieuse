@@ -3,12 +3,12 @@ export const FOOTER_DATA = {
   founder: "Eméline",
   founded: "MMXIX",
   year: "MMXXVI",
-  city: "Lisboa",
+  city: "Bordeaux",
   address: {
-    street: "Rua da Boavista, 84",
-    zip: "1200-070",
-    city: "Lisbonne",
-    country: "Portugal",
+    street: "[Adresse Bordeaux — à confirmer]",
+    zip: "",
+    city: "Bordeaux",
+    country: "France",
   },
   hours: "sur rendez-vous · mardi–samedi",
   email: "atelier@precieuse-joaillerie.com",
@@ -27,7 +27,7 @@ export const FOOTER_DATA = {
     { label: "Confidentialité", href: "/fr/confidentialite" },
     { label: "CGV", href: "/fr/cgv" },
   ],
-  copyright: "© Précieuse MMXXVI — Joaillerie artisanale, Portugal",
+  copyright: "© Précieuse MMXXVI — Joaillerie artisanale, France",
 };
 
 export const FOOTER_FONTS = {

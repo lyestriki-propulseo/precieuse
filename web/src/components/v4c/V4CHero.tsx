@@ -33,7 +33,7 @@ export function V4CHero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] w-full px-8 lg:px-16 py-6 flex items-baseline justify-between border-b border-[#f4d8a0]/20">
-        <span className={`${inter} text-[10px] uppercase tracking-[0.4em] text-[#f4d8a0]/85 drop-shadow-md`}>Vitrine · décembre · Lisboa</span>
+        <span className={`${inter} text-[10px] uppercase tracking-[0.4em] text-[#f4d8a0]/85 drop-shadow-md`}>Vitrine · décembre · Bordeaux</span>
         <span className={`${caveat} text-[16px] italic text-[#f4d8a0] drop-shadow-md`}>derrière la vitre —</span>
         <span className={`${inter} text-[10px] uppercase tracking-[0.4em] text-[#f4d8a0]/85 drop-shadow-md`}>MMXXVI · I</span>
       </div>
@@ -63,7 +63,7 @@ export function V4CHero() {
             <ArtDecoFrieze className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[55%] h-3 text-[#f4d8a0] opacity-65" stroke="#f4d8a0" />
 
             <h1
-              aria-label="Précieuse — joaillerie artisanale, Lisboa"
+              aria-label="Précieuse — joaillerie artisanale, Bordeaux"
               className={`${garamond} italic leading-[0.85] tracking-[-0.045em] text-center select-none relative text-[#fff8e6]`}
               style={{
                 fontSize: "clamp(80px, 14vw, 220px)",
@@ -101,7 +101,7 @@ export function V4CHero() {
             <p className={`${garamond} italic text-[20px] lg:text-[24px] text-[#fff7e3] leading-snug mt-2 drop-shadow-md`}>La pierre choisit la main qui la taille.</p>
           </div>
           <div className="col-span-12 lg:col-span-3 lg:col-start-7">
-            <span className={`${caveat} text-[14px] text-[#f4d8a0] italic drop-shadow-md`}>— un atelier, à Lisbonne</span>
+            <span className={`${caveat} text-[14px] text-[#f4d8a0] italic drop-shadow-md`}>— un atelier, à Bordeaux</span>
             <p className={`${inter} text-[11px] text-[#fff7e3]/85 leading-relaxed mt-3 max-w-[28ch] drop-shadow-md`}>Chaque bague naît d&apos;une commande, d&apos;une main, d&apos;un nom. Aucun stock. Aucune répétition.</p>
           </div>
           <div className="col-span-12 lg:col-span-2 lg:col-start-11 self-end text-right">

@@ -56,8 +56,8 @@ export function V4CVisite() {
           </h2>
 
           <address className={`${caveat} text-[22px] text-[var(--site-caveat)] not-italic leading-[1.7] mb-6`}>
-            Rua da Boavista, 84<br />
-            1200-070 Lisboa<br />
+            [Adresse Bordeaux — à confirmer]<br />
+            Bordeaux<br />
             sur rendez-vous, du mardi au samedi<br />
             10h — 18h
           </address>

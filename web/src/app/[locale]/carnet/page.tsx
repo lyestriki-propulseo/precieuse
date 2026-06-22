@@ -4,9 +4,9 @@ import { V4CFooter } from "@/components/v4c/V4CFooter";
 import { V4CSiteTheme } from "@/components/v4c/V4CSiteTheme";
 
 export const metadata = {
-  title: "Le Carnet d'Eméline — Précieuse · Joaillerie artisanale, Lisboa",
+  title: "Le Carnet d'Eméline — Précieuse · Joaillerie artisanale, Bordeaux",
   description:
-    "Pièces signées, archives de l'atelier et carnet d'œuvres d'Eméline — Joséphine, Aurore, Louise et les autres. Lisboa MMXXVI.",
+    "Pièces signées, archives de l'atelier et carnet d'œuvres d'Eméline — Joséphine, Aurore, Louise et les autres. Bordeaux MMXXVI.",
 };
 
 export default function CarnetPage() {

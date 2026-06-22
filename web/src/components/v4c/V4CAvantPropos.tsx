@@ -8,7 +8,7 @@ const PAIRES = [
   { roman: "i", pas: "pas de saison", mais: "Des pièces dessinées pour traverser le temps." },
   { roman: "ii", pas: "pas de stock", mais: "Une fabrication à l'unité, à partir d'une commande." },
   { roman: "iii", pas: "pas d'usine", mais: "Une main, un atelier, un geste — du dessin au sertissage." },
-  { roman: "iv", pas: "pas d'or anonyme", mais: "Or 19kt traçable, pierres précieuses choisies une à une." },
+  { roman: "iv", pas: "pas d'or anonyme", mais: "Or 18kt traçable, pierres précieuses choisies une à une." },
 ];
 
 function Filigrane() {
@@ -30,7 +30,7 @@ function Seal() {
       <circle cx="60" cy="60" r="50" stroke="currentColor" strokeWidth="0.4" strokeDasharray="1 3" />
       <text x="60" y="40" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">ATELIER</text>
       <text x="60" y="68" textAnchor="middle" fontSize="22" fill="currentColor" fontFamily="serif" fontStyle="italic">P</text>
-      <text x="60" y="86" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">LISBOA</text>
+      <text x="60" y="86" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">BORDEAUX</text>
       <text x="60" y="100" textAnchor="middle" fontSize="7" fill="currentColor" fontFamily="serif" letterSpacing="2">MMXXVI</text>
     </svg>
   );
@@ -57,7 +57,7 @@ export function V4CAvantPropos() {
               Eméline Le Ray
             </span>
             <span className={`${garamond} italic text-[12px] tracking-[0.2em] uppercase text-[var(--site-accent)]`}>
-              Lisboa · MMXXVI
+              Bordeaux · MMXXVI
             </span>
           </div>
         </div>

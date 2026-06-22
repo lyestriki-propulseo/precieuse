@@ -28,7 +28,7 @@ export const LETTRES: Lettre[] = [
   },
   {
     citation:
-      "Chaque fois que je regarde ma main, je pense à l'atelier, à la lumière de Lisbonne. C'est un voyage porté sur le doigt.",
+      "Chaque fois que je regarde ma main, je pense à l'atelier, à la lumière de Bordeaux. C'est un voyage porté sur le doigt.",
     auteur: "Margaux D.",
     initiale: "M",
     ville: "Bordeaux",

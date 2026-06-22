@@ -27,7 +27,7 @@ export const BESPOKE_PROCESS: ProcessStep[] = [
     number: "04",
     title: "Je fabrique",
     description:
-      "Fabrication complète au Portugal, en fonte à cire perdue, selon les techniques artisanales. Quatre à huit semaines.",
+      "Fabrication complète à Bordeaux, en fonte à cire perdue, selon les techniques artisanales. Quatre à huit semaines.",
   },
   {
     number: "05",

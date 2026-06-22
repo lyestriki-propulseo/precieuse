@@ -4,7 +4,7 @@ import { PRODUCTS } from "@/lib/content/products";
 
 export const metadata = {
   title: "Collection — Précieuse",
-  description: "Cinq modèles intemporels en or 19kt et diamants GVS.",
+  description: "Cinq modèles intemporels en or 18kt et diamants GVS.",
 };
 
 export default function CollectionPage() {
@@ -19,7 +19,7 @@ export default function CollectionPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-foreground/70 mt-8 text-lg leading-relaxed font-light">
-              Chaque modèle est dessiné et fabriqué à la main, en or 19kt, avec
+              Chaque modèle est dessiné et fabriqué à la main, en or 18kt, avec
               des diamants GVS certifiés. À porter tels quels ou à
               personnaliser — pierre, métal, taille.
             </p>

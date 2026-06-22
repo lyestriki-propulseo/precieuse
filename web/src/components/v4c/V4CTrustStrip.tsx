@@ -44,7 +44,7 @@ const ITEMS: TrustItem[] = [
   {
     icon: <IconEtoile />,
     titre: "SAVOIR-FAIRE",
-    corps: "Atelier Lisboa, cire perdue",
+    corps: "Atelier Bordeaux, cire perdue",
     annotation: "depuis 2019",
   },
   {

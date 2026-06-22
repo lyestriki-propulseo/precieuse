@@ -9,7 +9,7 @@ export default function MentionsLegalesPage() {
       <h2>Éditeur</h2>
       <p>
         Le site {SITE.brand} est édité par Eméline [Nom de famille], joaillière
-        artisanale, immatriculée [SIRET ou registre Portugal — à compléter].
+        artisanale, immatriculée [SIRET — à compléter].
       </p>
       <h2>Hébergement</h2>
       <p>

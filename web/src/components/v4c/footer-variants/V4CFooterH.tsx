@@ -16,7 +16,7 @@ function MapLisbonne() {
         <circle r="9" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.6" />
       </g>
       <text x="165" y="68" fontSize="9" fill="currentColor" fontFamily="cursive" fontStyle="italic" opacity="0.85">atelier</text>
-      <text x="14" y="186" fontSize="7" fill="currentColor" fontFamily="serif" fontStyle="italic" letterSpacing="2" opacity="0.5">LISBOA</text>
+      <text x="14" y="186" fontSize="7" fill="currentColor" fontFamily="serif" fontStyle="italic" letterSpacing="2" opacity="0.5">BORDEAUX</text>
     </svg>
   );
 }
@@ -29,7 +29,7 @@ export function V4CFooterH() {
         <div className="flex justify-center mb-6 pb-5 border-b border-[var(--site-bg)]/15">
           <Image
             src="/brand/logo.png"
-            alt="Précieuse — Joaillerie artisanale, Lisboa"
+            alt="Précieuse — Joaillerie artisanale, Bordeaux"
             width={420}
             height={140}
             className="h-12 w-auto opacity-90 [filter:brightness(0)_invert(1)]"

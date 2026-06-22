@@ -14,11 +14,11 @@ export function Footer() {
         <div className="flex flex-col gap-6">
           <p className="font-display-lg text-2xl text-white">{SITE.brand}</p>
           <p className="font-technical-label tracking-[0.15em] uppercase leading-relaxed text-white/60">
-            Atelier Lisbonne / Portugal
+            Atelier Bordeaux / France
             <br />
-            Rua de São Bento, 452
+            [Adresse Bordeaux — à confirmer]
             <br />
-            1200-819 Lisboa
+            Bordeaux
           </p>
           <div className="flex gap-6">
             <a
@@ -77,7 +77,7 @@ export function Footer() {
           © {new Date().getFullYear()} {SITE.brand} · Artisanat d&apos;archive
         </span>
         <span className="font-technical-label tracking-[0.15em] uppercase text-white/30">
-          Portugal / Lisbonne
+          France / Bordeaux
         </span>
       </div>
     </footer>

@@ -13,9 +13,9 @@ import { V4CReveal } from "@/components/v4c/V4CReveal";
 import { V4CSiteTheme } from "@/components/v4c/V4CSiteTheme";
 
 export const metadata = {
-  title: "Le Carnet — Précieuse · Joaillerie artisanale, Lisboa",
+  title: "Le Carnet — Précieuse · Joaillerie artisanale, Bordeaux",
   description:
-    "Feuilletez le carnet d'atelier d'Eméline — pièces dessinées à la main, or 19kt, Lisboa MMXXVI.",
+    "Feuilletez le carnet d'atelier d'Eméline — pièces dessinées à la main, or 18kt, Bordeaux MMXXVI.",
 };
 
 export default function HomePage() {

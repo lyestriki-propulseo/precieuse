@@ -66,7 +66,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Précieuse — Joaillerie artisanale",
   description:
-    "Bijoux en or 19kt et diamants GVS, dessinés et fabriqués à la main au Portugal.",
+    "Bijoux en or 18kt et diamants GVS, dessinés et fabriqués à la main à Bordeaux.",
 };
 
 export default function RootLayout({

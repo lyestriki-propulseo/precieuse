@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export const metadata = {
   title: "La créatrice — Précieuse",
   description:
-    "Eméline, joaillière artisanale au Portugal — 12 ans à travailler l'or à la main.",
+    "Eméline, joaillière artisanale à Bordeaux — 12 ans à travailler l'or à la main.",
 };
 
 export default function CreatricePage() {

@@ -45,7 +45,7 @@ export function V4CCreationsManifesto() {
               {MANIFESTO.signature}
             </span>
             <span className={`${garamond} italic text-[12px] tracking-[0.3em] text-[var(--site-accent)]`}>
-              LISBOA · MMXXVI
+              BORDEAUX · MMXXVI
             </span>
           </aside>
         </div>

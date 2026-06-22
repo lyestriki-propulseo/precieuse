@@ -27,7 +27,7 @@ export function V4CNav() {
         >
           <Image
             src="/brand/logo.png"
-            alt="Précieuse — Joaillerie artisanale, Lisboa"
+            alt="Précieuse — Joaillerie artisanale, Bordeaux"
             width={420}
             height={140}
             priority

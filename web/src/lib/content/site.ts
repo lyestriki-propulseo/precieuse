@@ -1,8 +1,8 @@
 export const SITE = {
   brand: "Précieuse",
-  baseline: "Joaillerie artisanale · Portugal",
+  baseline: "Joaillerie artisanale · Bordeaux",
   description:
-    "Bijoux en or 19kt et diamants GVS, dessinés et fabriqués à la main au Portugal.",
+    "Bijoux en or 18kt et diamants GVS, dessinés et fabriqués à la main à Bordeaux.",
   email: "contact@precieuse.fr",
   whatsapp: "https://wa.me/33000000000",
   instagram: "https://instagram.com/precieuse.bijoux",
