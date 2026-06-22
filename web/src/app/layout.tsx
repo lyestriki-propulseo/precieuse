@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Caveat, Cormorant_Garamond, EB_Garamond, Inter, JetBrains_Mono, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { BrandProvider } from "@/components/brand/BrandProvider";
 import { BrandToggle } from "@/components/brand/BrandToggle";
 import { BRAND_STORAGE_KEY, DEFAULT_BRAND } from "@/components/brand/brand";
@@ -72,10 +73,33 @@ const caveat = Caveat({
   display: "swap",
 });
 
+const DEFAULT_TITLE = "Précieuse — Joaillerie artisanale, Bordeaux";
+const DEFAULT_DESCRIPTION =
+  "Bijoux en or 18kt et diamants GVS, dessinés et fabriqués à la main à Bordeaux.";
+
+// NOTE: no Open Graph image is set yet. `/icon.png` exists but is a square
+// picto (unsuitable as a 1200×630 social card). FLAG: add a dedicated OG image
+// under /public and wire it here (and per page) before launch.
 export const metadata: Metadata = {
-  title: "Précieuse — Joaillerie artisanale",
-  description:
-    "Bijoux en or 18kt et diamants GVS, dessinés et fabriqués à la main à Bordeaux.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s · ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

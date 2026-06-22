@@ -2,7 +2,7 @@ import { LegalPage } from "@/components/sections/LegalPage";
 import { getLegalPage } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = { title: "CGV — Précieuse" };
+export const metadata = { title: "CGV" };
 
 const L = "fr" as const;
 

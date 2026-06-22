@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import { Container, Heading, Reveal, Section } from "@/components/luxe";
 import { ProductCard } from "@/components/sections/ProductCard";
+import { absoluteUrl } from "@/lib/seo";
 import { getPieces } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = {
-  title: "Collection — Précieuse",
+export const metadata: Metadata = {
+  title: "Collection",
   description: "Cinq modèles intemporels en or 18kt et diamants GVS.",
+  alternates: { canonical: absoluteUrl("/fr/collection") },
 };
 
 const L = "fr" as const;

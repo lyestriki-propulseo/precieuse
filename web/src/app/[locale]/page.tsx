@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { absoluteUrl } from "@/lib/seo";
 import { V4CNav } from "@/components/v4c/V4CNav";
 import { V4CHero } from "@/components/v4c/V4CHero";
 import { V4CAvantPropos } from "@/components/v4c/V4CAvantPropos";
@@ -23,10 +25,15 @@ import {
 import { pickLocale } from "@/sanity/lib/i18n";
 import { toFooterVM, toNavLinks } from "@/sanity/lib/view-models";
 
-export const metadata = {
-  title: "Le Carnet — Précieuse · Joaillerie artisanale, Bordeaux",
+export const metadata: Metadata = {
+  // Homepage keeps its full branded title via `absolute` (bypasses the
+  // root `%s · Précieuse` template so the brand isn't repeated).
+  title: {
+    absolute: "Le Carnet — Précieuse · Joaillerie artisanale, Bordeaux",
+  },
   description:
     "Feuilletez le carnet d'atelier d'Emeline — pièces dessinées à la main, or 18kt, Bordeaux MMXXVI.",
+  alternates: { canonical: absoluteUrl("/fr") },
 };
 
 const L = "fr" as const;

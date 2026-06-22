@@ -12,7 +12,7 @@ import { pickLocale } from "@/sanity/lib/i18n";
 import { toFooterVM, toNavLinks } from "@/sanity/lib/view-models";
 
 export const metadata = {
-  title: "Le Carnet d'Emeline — Précieuse · Joaillerie artisanale, Bordeaux",
+  title: { absolute: "Le Carnet d'Emeline — Précieuse · Joaillerie artisanale, Bordeaux" },
   description:
     "Pièces signées, archives de l'atelier et carnet d'œuvres d'Emeline — Joséphine, Aurore, Louise et les autres. Bordeaux MMXXVI.",
 };

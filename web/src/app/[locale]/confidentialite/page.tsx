@@ -2,7 +2,7 @@ import { LegalPage } from "@/components/sections/LegalPage";
 import { getLegalPage, getSiteSettings } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = { title: "Politique de confidentialité — Précieuse" };
+export const metadata = { title: "Politique de confidentialité" };
 
 const L = "fr" as const;
 

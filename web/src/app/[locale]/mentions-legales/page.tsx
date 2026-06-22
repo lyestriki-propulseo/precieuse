@@ -2,7 +2,7 @@ import { LegalPage } from "@/components/sections/LegalPage";
 import { getLegalPage, getSiteSettings } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = { title: "Mentions légales — Précieuse" };
+export const metadata = { title: "Mentions légales" };
 
 const L = "fr" as const;
 

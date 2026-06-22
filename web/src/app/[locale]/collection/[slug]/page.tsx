@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
+import { absoluteUrl, SITE_NAME } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { getPiece, getPieces } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
@@ -29,8 +31,9 @@ export async function generateMetadata({
   const piece = await getPiece(slug);
   if (!piece) return {};
   return {
-    title: `${piece.name} — Précieuse`,
+    title: piece.name,
     description: pickLocale(piece.tagline, L),
+    alternates: { canonical: absoluteUrl(`/fr/collection/${piece.slug}`) },
   };
 }
 
@@ -53,8 +56,29 @@ export default async function ProductPage({
     imageAlt: pickLocale(piece.image.alt, L),
   };
 
+  // Product structured data. Price is "Sur devis" (quote-only) — we do NOT
+  // emit a fake price; `offers` advertises availability only.
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description || product.tagline,
+    image: product.image.startsWith("http")
+      ? product.image
+      : absoluteUrl(product.image),
+    category: "Jewelry",
+    brand: { "@type": "Brand", name: SITE_NAME },
+    url: absoluteUrl(`/fr/collection/${product.slug}`),
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: SITE_NAME },
+    },
+  };
+
   return (
     <>
+      <JsonLd data={productJsonLd} />
       <Section spacing="default" tone="cream">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">

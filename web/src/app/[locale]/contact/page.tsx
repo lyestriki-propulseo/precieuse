@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { getSiteSettings } from "@/sanity/lib/content";
 
 export const metadata = {
-  title: "Contact — Précieuse",
+  title: "Contact",
   description:
     "Pour discuter de votre projet, sur-mesure ou collection, ou simplement dire bonjour.",
 };

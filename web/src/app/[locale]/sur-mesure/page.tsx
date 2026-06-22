@@ -17,7 +17,7 @@ const ctaGhost = cn(
 );
 
 export const metadata = {
-  title: "Sur-mesure — Précieuse",
+  title: "Sur-mesure",
   description:
     "Créer un bijou unique pensé ensemble, de la première esquisse au bijou final.",
 };

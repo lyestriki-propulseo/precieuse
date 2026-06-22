@@ -6,7 +6,7 @@ import { getCreatrice } from "@/sanity/lib/content";
 import { pickLocale } from "@/sanity/lib/i18n";
 
 export const metadata = {
-  title: "La créatrice — Précieuse",
+  title: "La créatrice",
   description:
     "Emeline, joaillière artisanale à Bordeaux — 12 ans à travailler l'or à la main.",
 };
