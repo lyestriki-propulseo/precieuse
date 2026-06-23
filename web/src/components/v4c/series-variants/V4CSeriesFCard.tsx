@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/lib/content/products";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
@@ -10,10 +9,22 @@ const inter = "font-[family-name:var(--font-inter)]";
 
 const ROMAN = ["I", "II", "III", "IV", "V"] as const;
 
+export type PieceVM = {
+  slug: string;
+  name: string;
+  tagline: string;
+  price: string;
+  description: string;
+  materials: string;
+  story: string;
+  image: string;
+  imageAlt: string;
+};
+
 type CardRole = "focus" | "peek-left" | "peek-right" | "hidden";
 
 interface V4CSeriesFCardProps {
-  product: Product;
+  product: PieceVM;
   index: number;
   role: CardRole;
   reducedMotion: boolean;
@@ -40,7 +51,7 @@ function getCardClasses(role: CardRole): string {
   return `${base} left-1/2 -translate-x-1/2 z-0 opacity-0 pointer-events-none w-[88%] max-w-[1080px]`;
 }
 
-function FocusCardContent({ product, index }: { product: Product; index: number }) {
+function FocusCardContent({ product, index }: { product: PieceVM; index: number }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] aspect-[5/3] md:aspect-[16/9]">
       {/* Image side */}
@@ -89,7 +100,7 @@ function FocusCardContent({ product, index }: { product: Product; index: number 
   );
 }
 
-function PeekCardContent({ product }: { product: Product }) {
+function PeekCardContent({ product }: { product: PieceVM }) {
   return (
     <div className="relative w-full h-full bg-[var(--site-surface)]">
       <Image

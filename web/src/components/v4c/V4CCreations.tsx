@@ -1,9 +1,21 @@
 import { V4CCreationsManifesto } from "./creations-variants/V4CCreationsManifesto";
-import { V4CCreationsSignatures } from "./creations-variants/V4CCreationsSignatures";
-import { V4CCreationsGalerie } from "./creations-variants/V4CCreationsGalerie";
+import {
+  V4CCreationsSignatures,
+  type SignatureVM,
+} from "./creations-variants/V4CCreationsSignatures";
+import {
+  V4CCreationsGalerie,
+  type GalerieVM,
+} from "./creations-variants/V4CCreationsGalerie";
 import { V4CCreationsCTA } from "./creations-variants/V4CCreationsCTA";
 
-export function V4CCreations() {
+export function V4CCreations({
+  signatures,
+  galerie,
+}: {
+  signatures: SignatureVM[];
+  galerie: GalerieVM[];
+}) {
   return (
     <section
       id="creations"
@@ -21,10 +33,10 @@ export function V4CCreations() {
       <V4CCreationsManifesto />
 
       {/* Strate 2 — 3 pièces signatures racontées */}
-      <V4CCreationsSignatures />
+      <V4CCreationsSignatures signatures={signatures} />
 
       {/* Strate 3 — Galerie d'atelier (photos + vignettes texte) */}
-      <V4CCreationsGalerie />
+      <V4CCreationsGalerie galerie={galerie} />
 
       {/* Strate 4 — CTA conversion */}
       <V4CCreationsCTA />

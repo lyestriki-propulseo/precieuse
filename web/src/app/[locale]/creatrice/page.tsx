@@ -2,14 +2,27 @@ import Link from "next/link";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { getCreatrice } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
 
 export const metadata = {
-  title: "La créatrice — Précieuse",
+  title: "La créatrice",
   description:
-    "Eméline, joaillière artisanale au Portugal — 12 ans à travailler l'or à la main.",
+    "Emeline, joaillière artisanale à Bordeaux — 12 ans à travailler l'or à la main.",
 };
 
-export default function CreatricePage() {
+const L = "fr" as const;
+
+export default async function CreatricePage() {
+  const creatrice = await getCreatrice();
+  const overline = pickLocale(creatrice.overline, L);
+  const title = pickLocale(creatrice.title, L);
+  const intro = pickLocale(creatrice.intro, L);
+  const portraitSrc = creatrice.portrait.src;
+  const portraitAlt = pickLocale(creatrice.portrait.alt, L);
+  const quote = pickLocale(creatrice.quote, L);
+  const parcours = creatrice.sections[0];
+  const philosophie = creatrice.sections[1];
   return (
     <>
       <Section spacing="default" tone="cream">
@@ -17,8 +30,8 @@ export default function CreatricePage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_3fr] lg:gap-20">
             <Reveal>
               <LuxeImage
-                src="/images/emeline/emeline-atelier.jpg"
-                alt="Eméline, joaillière artisanale, dans son atelier"
+                src={portraitSrc}
+                alt={portraitAlt}
                 width={1080}
                 height={1440}
                 aspect="portrait"
@@ -30,13 +43,11 @@ export default function CreatricePage() {
 
             <Reveal delay={0.15}>
               <div className="flex h-full flex-col justify-center">
-                <Heading as="h1" size="display" overline="La créatrice">
-                  Moi c&apos;est Eméline.
+                <Heading as="h1" size="display" overline={overline}>
+                  {title}
                 </Heading>
                 <p className="text-foreground/75 mt-8 text-lg leading-relaxed font-light">
-                  Joaillière artisanale, je fabrique le bijou de vos rêves.
-                  Douze ans à travailler l&apos;or — tous les jours. Ça laisse
-                  des traces, et surtout du savoir-faire.
+                  {intro}
                 </p>
               </div>
             </Reveal>
@@ -49,8 +60,8 @@ export default function CreatricePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <LuxeImage
-                src="/images/atelier/bague-en-fabrication.jpg"
-                alt="Bague en cours de fabrication sur l'établi"
+                src="/images/real/bague-pierre-josephine.webp"
+                alt="Bague en or 18 carats sertie d'une pierre — savoir-faire de l'atelier Précieuse, Bordeaux"
                 width={1200}
                 height={1600}
                 aspect="portrait"
@@ -60,22 +71,19 @@ export default function CreatricePage() {
             </Reveal>
             <div>
               <Reveal>
-                <Heading as="h2" size="md" overline="Le parcours">
-                  De la formation à l&apos;atelier
+                <Heading
+                  as="h2"
+                  size="md"
+                  overline={pickLocale(parcours?.overline, L)}
+                >
+                  {pickLocale(parcours?.title, L)}
                 </Heading>
               </Reveal>
               <Reveal delay={0.15}>
                 <div className="text-foreground/75 mt-10 space-y-6 text-lg leading-relaxed font-light">
-                  <p>
-                    Formation en joaillerie, puis douze années à pratiquer
-                    chaque technique au quotidien — fonte à cire perdue,
-                    sertissage, polissage main. Chaque bague que je crée passe
-                    par mes mains, du dessin initial au polissage final.
-                  </p>
-                  <p>
-                    C&apos;est exigeant, c&apos;est précis, c&apos;est lent. Et
-                    c&apos;est ce qui rend chaque pièce unique et pérenne.
-                  </p>
+                  {(parcours?.body ?? []).map((p, i) => (
+                    <p key={i}>{pickLocale(p, L)}</p>
+                  ))}
                 </div>
               </Reveal>
             </div>
@@ -86,25 +94,25 @@ export default function CreatricePage() {
       <Section spacing="default" tone="cream">
         <Container size="narrow">
           <Reveal>
-            <Heading as="h2" size="md" overline="La philosophie">
-              Pas de compromis, pas de raccourci.
+            <Heading
+              as="h2"
+              size="md"
+              overline={pickLocale(philosophie?.overline, L)}
+            >
+              {pickLocale(philosophie?.title, L)}
             </Heading>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="text-foreground/75 mt-10 text-lg leading-relaxed font-light">
-              Il y a des jours de doutes. Mais c&apos;est dans ces moments-là
-              que je me recentre sur l&apos;essentiel : créer des bijoux qui
-              racontent votre histoire, qui deviennent une part de vous. Pas
-              de compromis sur la matière, pas de raccourci sur le savoir-faire.
-              Précieuse, c&apos;est cela : la transparence de l&apos;artisanat,
-              la confiance du geste.
-            </p>
+            <div className="text-foreground/75 mt-10 space-y-6 text-lg leading-relaxed font-light">
+              {(philosophie?.body ?? []).map((p, i) => (
+                <p key={i}>{pickLocale(p, L)}</p>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={0.3}>
             <blockquote className="border-raspberry/30 mt-12 border-l-2 pl-6 italic">
               <p className="font-heading text-2xl leading-snug">
-                « Ce que personne ne voit derrière un bijou artisanal — et que
-                personne n&apos;a pris le temps de vous expliquer. »
+                « {quote} »
               </p>
             </blockquote>
           </Reveal>

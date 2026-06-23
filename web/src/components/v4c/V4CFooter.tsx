@@ -1,5 +1,5 @@
-import { V4CFooterH } from "./footer-variants/V4CFooterH";
+import { V4CFooterH, type FooterVM } from "./footer-variants/V4CFooterH";
 
-export function V4CFooter() {
-  return <V4CFooterH />;
+export function V4CFooter({ footer }: { footer: FooterVM }) {
+  return <V4CFooterH footer={footer} />;
 }

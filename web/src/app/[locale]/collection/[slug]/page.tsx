@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
+import { absoluteUrl, SITE_NAME } from "@/lib/seo";
 import { cn } from "@/lib/utils";
-import { PRODUCTS, getProduct } from "@/lib/content/products";
+import { getPiece, getPieces } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
+
+const L = "fr" as const;
 
 const ctaPrimary = cn(
   buttonVariants({ size: "lg" }),
@@ -14,19 +19,21 @@ const ctaGhost = cn(
   "rounded-full px-6 h-auto py-3",
 );
 
-export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const pieces = await getPieces();
+  return pieces.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/collection/[slug]">) {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) return {};
+  const piece = await getPiece(slug);
+  if (!piece) return {};
   return {
-    title: `${product.name} — Précieuse`,
-    description: product.tagline,
+    title: piece.name,
+    description: pickLocale(piece.tagline, L),
+    alternates: { canonical: absoluteUrl(`/fr/collection/${piece.slug}`) },
   };
 }
 
@@ -34,11 +41,44 @@ export default async function ProductPage({
   params,
 }: PageProps<"/[locale]/collection/[slug]">) {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) notFound();
+  const piece = await getPiece(slug);
+  if (!piece) notFound();
+
+  const product = {
+    slug: piece.slug,
+    name: piece.name,
+    tagline: pickLocale(piece.tagline, L),
+    price: pickLocale(piece.priceLabel, L),
+    description: pickLocale(piece.description, L),
+    materials: pickLocale(piece.materials, L),
+    story: pickLocale(piece.story, L),
+    image: piece.image.src,
+    imageAlt: pickLocale(piece.image.alt, L),
+  };
+
+  // Product structured data. Price is "Sur devis" (quote-only) — we do NOT
+  // emit a fake price; `offers` advertises availability only.
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description || product.tagline,
+    image: product.image.startsWith("http")
+      ? product.image
+      : absoluteUrl(product.image),
+    category: "Jewelry",
+    brand: { "@type": "Brand", name: SITE_NAME },
+    url: absoluteUrl(`/fr/collection/${product.slug}`),
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: SITE_NAME },
+    },
+  };
 
   return (
     <>
+      <JsonLd data={productJsonLd} />
       <Section spacing="default" tone="cream">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">

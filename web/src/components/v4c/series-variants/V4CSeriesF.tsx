@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { PRODUCTS } from "@/lib/content/products";
-import { V4CSeriesFCard } from "@/components/v4c/series-variants/V4CSeriesFCard";
+import {
+  V4CSeriesFCard,
+  type PieceVM,
+} from "@/components/v4c/series-variants/V4CSeriesFCard";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
 
 const INTERVAL_MS = 7000;
-const N = PRODUCTS.length; // 5
 
 function mod(n: number, m: number): number {
   return ((n % m) + m) % m;
@@ -16,15 +17,17 @@ function mod(n: number, m: number): number {
 
 type SlideRole = "focus" | "peek-left" | "peek-right" | "hidden";
 
-function getRoleFor(i: number, current: number): SlideRole {
-  const diff = mod(i - current, N);
+function getRoleFor(i: number, current: number, n: number): SlideRole {
+  const diff = mod(i - current, n);
   if (diff === 0) return "focus";
   if (diff === 1) return "peek-right";
-  if (diff === N - 1) return "peek-left";
+  if (diff === n - 1) return "peek-left";
   return "hidden";
 }
 
-export function V4CSeriesF() {
+export function V4CSeriesF({ pieces }: { pieces: PieceVM[] }) {
+  const PRODUCTS = pieces;
+  const N = PRODUCTS.length;
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -42,8 +45,8 @@ export function V4CSeriesF() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const goNext = useCallback(() => setCurrent((c) => mod(c + 1, N)), []);
-  const goPrev = useCallback(() => setCurrent((c) => mod(c - 1, N)), []);
+  const goNext = useCallback(() => setCurrent((c) => mod(c + 1, N)), [N]);
+  const goPrev = useCallback(() => setCurrent((c) => mod(c - 1, N)), [N]);
   const goTo = useCallback((idx: number) => setCurrent(idx), []);
 
   const resetTimer = useCallback(() => {
@@ -124,7 +127,7 @@ export function V4CSeriesF() {
               key={product.slug}
               product={product}
               index={i}
-              role={getRoleFor(i, current)}
+              role={getRoleFor(i, current, N)}
               reducedMotion={reducedMotion}
               onClickPeek={() => handleGoTo(i)}
             />

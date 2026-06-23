@@ -5,13 +5,18 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
-import { NAV_LINKS, SITE } from "@/lib/content/site";
 
-const links = NAV_LINKS;
+type NavLink = { label: string; href: string };
 
 const HERO_FULLSCREEN_ROUTES = ["/fr", "/fr/"];
 
-export function Nav() {
+export function Nav({
+  brand,
+  links,
+}: {
+  brand: string;
+  links: NavLink[];
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -65,7 +70,7 @@ export function Nav() {
             className="font-display text-xl italic tracking-tight"
             onClick={() => setOpen(false)}
           >
-            {SITE.brand}
+            {brand}
           </Link>
 
           <nav className="hidden gap-8 md:flex">

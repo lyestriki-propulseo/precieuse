@@ -4,12 +4,12 @@ const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const bodoni = "font-[family-name:var(--font-bodoni)]";
 const cormorant = "font-[family-name:var(--font-cormorant)]";
 
-const PAIRES = [
-  { roman: "i", pas: "pas de saison", mais: "Des pièces dessinées pour traverser le temps." },
-  { roman: "ii", pas: "pas de stock", mais: "Une fabrication à l'unité, à partir d'une commande." },
-  { roman: "iii", pas: "pas d'usine", mais: "Une main, un atelier, un geste — du dessin au sertissage." },
-  { roman: "iv", pas: "pas d'or anonyme", mais: "Or 19kt traçable, pierres précieuses choisies une à une." },
-];
+const ROMAN = ["i", "ii", "iii", "iv", "v", "vi"] as const;
+
+type AvantProposVM = {
+  heading: string;
+  pairs: { pas: string; mais: string }[];
+};
 
 function Filigrane() {
   return (
@@ -30,13 +30,22 @@ function Seal() {
       <circle cx="60" cy="60" r="50" stroke="currentColor" strokeWidth="0.4" strokeDasharray="1 3" />
       <text x="60" y="40" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">ATELIER</text>
       <text x="60" y="68" textAnchor="middle" fontSize="22" fill="currentColor" fontFamily="serif" fontStyle="italic">P</text>
-      <text x="60" y="86" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">LISBOA</text>
+      <text x="60" y="86" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="serif" letterSpacing="1.8">BORDEAUX</text>
       <text x="60" y="100" textAnchor="middle" fontSize="7" fill="currentColor" fontFamily="serif" letterSpacing="2">MMXXVI</text>
     </svg>
   );
 }
 
-export function V4CAvantPropos() {
+export function V4CAvantPropos({ avantPropos }: { avantPropos: AvantProposVM }) {
+  // Heading = mot d'attaque en capitales (« Atelier ») + marque en italique
+  // (« Précieuse »). On le pilote depuis le contenu en gardant le traitement.
+  const [headingLead, ...headingRest] = avantPropos.heading.trim().split(" ");
+  const headingBrand = headingRest.join(" ");
+  const PAIRES = avantPropos.pairs.map((p, i) => ({
+    roman: ROMAN[i] ?? "",
+    pas: p.pas,
+    mais: p.mais,
+  }));
   return (
     <section className="relative bg-[var(--site-bg)] py-20 px-8 lg:px-16">
       <div className="absolute top-0 left-0 right-0 border-t border-[var(--site-text)]/25" />
@@ -46,7 +55,7 @@ export function V4CAvantPropos() {
           <div className="relative w-full max-w-[460px] aspect-[3/4] border border-[var(--site-text)]/30">
             <Image
               src="/images/emeline-portrait.jpg"
-              alt="Portrait d'Eméline Le Ray, fondatrice et joaillière de Précieuse"
+              alt="Portrait d'Emeline Le Ray, fondatrice et joaillière de Précieuse"
               fill
               sizes="(min-width: 768px) 460px, 90vw"
               className="object-cover"
@@ -54,10 +63,10 @@ export function V4CAvantPropos() {
           </div>
           <div className="mt-3 flex items-baseline justify-between max-w-[460px]">
             <span className={`${garamond} italic text-[13px] tracking-[0.25em] uppercase text-[var(--site-text)]/70`}>
-              Eméline Le Ray
+              Emeline Le Ray
             </span>
             <span className={`${garamond} italic text-[12px] tracking-[0.2em] uppercase text-[var(--site-accent)]`}>
-              Lisboa · MMXXVI
+              Bordeaux · MMXXVI
             </span>
           </div>
         </div>
@@ -69,11 +78,11 @@ export function V4CAvantPropos() {
 
           <div className="flex flex-col items-start mb-10">
             <span className={`${bodoni} text-[34px] tracking-[0.18em] uppercase text-[var(--site-text)] leading-none`}>
-              Maison
+              {headingLead}
             </span>
             <div className="my-3"><Filigrane /></div>
             <span className={`${bodoni} italic text-[52px] text-[var(--site-text)] leading-none`}>
-              Précieuse
+              {headingBrand}
             </span>
           </div>
 
@@ -99,7 +108,7 @@ export function V4CAvantPropos() {
             <Seal />
             <div className="flex flex-col">
               <span className={`${bodoni} italic text-[18px] text-[var(--site-text)]`}>
-                Eméline Le Ray
+                Emeline Le Ray
               </span>
               <span className={`${cormorant} italic text-[13px] text-[var(--site-text)]/65 tracking-wide`}>
                 fondatrice — fondée mai · MMXXV

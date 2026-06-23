@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GALERIE, FONT } from "./data";
+import { FONT } from "./data";
 
 const { garamond, caveat, inter } = FONT;
 
@@ -9,7 +9,18 @@ const STATUS_LABEL: Record<"vendue" | "disponible" | "signature", string> = {
   signature: "Signature",
 };
 
-export function V4CCreationsGalerie() {
+export type GalerieVM = {
+  id: string;
+  name: string;
+  image?: string;
+  matiere: string;
+  year: string;
+  status: "vendue" | "disponible" | "signature";
+  story?: string;
+};
+
+export function V4CCreationsGalerie({ galerie }: { galerie: GalerieVM[] }) {
+  const GALERIE = galerie;
   const photoPieces = GALERIE.filter((p) => p.image);
   const textPieces = GALERIE.filter((p) => !p.image);
 

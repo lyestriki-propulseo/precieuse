@@ -1,11 +1,17 @@
 import { LegalPage } from "@/components/sections/LegalPage";
+import { getLegalPage } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = { title: "CGV — Précieuse" };
+export const metadata = { title: "CGV" };
 
-export default function CgvPage() {
+const L = "fr" as const;
+
+export default async function CgvPage() {
+  const page = await getLegalPage("cgv");
+  const title = pickLocale(page?.title, L) || "Conditions générales de vente";
   return (
     <LegalPage
-      title="Conditions générales de vente"
+      title={title}
       overline="Conditions de commande"
     >
       <h2>Objet</h2>

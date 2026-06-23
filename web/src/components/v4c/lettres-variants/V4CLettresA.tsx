@@ -1,13 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { LETTRES, FONT } from "./data";
+import { FONT } from "./data";
 
 const { garamond, caveat } = FONT;
 
-export function V4CLettresA() {
+export type LettreVM = {
+  citation: string;
+  auteur: string;
+  ville: string;
+  date: string;
+  piece: string;
+};
+
+export function V4CLettresA({ lettres }: { lettres: LettreVM[] }) {
+  const LETTRES = lettres;
   const [active, setActive] = useState(0);
   const lettre = LETTRES[active];
+
+  if (!lettre) return null;
 
   return (
     <section className="relative bg-[var(--site-bg)] py-14 lg:py-16 px-8 lg:px-16">

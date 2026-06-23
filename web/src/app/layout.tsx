@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Caveat, Cormorant_Garamond, EB_Garamond, Inter, JetBrains_Mono, Manrope, Playfair_Display } from "next/font/google";
-import { Nav } from "@/components/layout/Nav";
-import { Footer } from "@/components/layout/Footer";
-import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { BrandProvider } from "@/components/brand/BrandProvider";
+import { BrandToggle } from "@/components/brand/BrandToggle";
+import { BRAND_STORAGE_KEY, DEFAULT_BRAND } from "@/components/brand/brand";
+
+// Pose `data-brand` AVANT le paint depuis localStorage → pas de flash d'accent.
+const brandNoFlashScript = `(function(){try{var b=localStorage.getItem(${JSON.stringify(
+  BRAND_STORAGE_KEY,
+)});if(b!=="teal"&&b!=="blush"){b=${JSON.stringify(
+  DEFAULT_BRAND,
+)};}document.documentElement.setAttribute("data-brand",b);}catch(e){document.documentElement.setAttribute("data-brand",${JSON.stringify(
+  DEFAULT_BRAND,
+)});}})();`;
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -63,10 +73,33 @@ const caveat = Caveat({
   display: "swap",
 });
 
+const DEFAULT_TITLE = "Précieuse — Joaillerie artisanale, Bordeaux";
+const DEFAULT_DESCRIPTION =
+  "Bijoux en or 18kt et diamants GVS, dessinés et fabriqués à la main à Bordeaux.";
+
+// NOTE: no Open Graph image is set yet. `/icon.png` exists but is a square
+// picto (unsuitable as a 1200×630 social card). FLAG: add a dedicated OG image
+// under /public and wire it here (and per page) before launch.
 export const metadata: Metadata = {
-  title: "Précieuse — Joaillerie artisanale",
-  description:
-    "Bijoux en or 19kt et diamants GVS, dessinés et fabriqués à la main au Portugal.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s · ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
@@ -78,13 +111,17 @@ export default function RootLayout({
     // TODO Phase 5 : `lang` deviendra dynamique via next-intl quand EN/PT seront actifs.
     <html
       lang="fr"
+      data-brand={DEFAULT_BRAND}
       className={`${playfair.variable} ${bodoni.variable} ${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable} ${ebGaramond.variable} ${manrope.variable} ${caveat.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: brandNoFlashScript }} />
+      </head>
       <body className="bg-cream text-foreground flex min-h-full flex-col font-sans">
-        <Nav />
-        <main className="flex flex-1 flex-col pt-16">{children}</main>
-        <Footer />
-        <Toaster richColors position="bottom-right" />
+        <BrandProvider>
+          {children}
+          <BrandToggle />
+        </BrandProvider>
       </body>
     </html>
   );

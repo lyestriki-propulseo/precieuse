@@ -12,13 +12,13 @@ export type Matiere = {
 export const MATIERES: Matiere[] = [
   {
     slug: "or-19kt",
-    nom: "Or 19kt",
-    sous_titre: "fondu à Lisboa",
+    nom: "Or 18kt",
+    sous_titre: "fondu à Bordeaux",
     description_courte:
-      "Or 19 carats jaune ou rose, fondu et travaillé dans notre atelier portugais. Sa teneur supérieure aux 18kt français lui donne un éclat plus chaud, plus lumineux.",
+      "Or 18 carats jaune ou rose, fondu et travaillé à la main dans notre atelier à Bordeaux. Un alliage choisi pour son éclat chaud et sa tenue, pensé pour durer.",
     image: "/images/matieres/or-19kt-v2.jpg",
-    image_alt: "Anneau d'or 19kt poli, posé sur un galet de marbre blanc",
-    annotation_caveat: "fondu à Lisboa",
+    image_alt: "Anneau d'or 18kt poli, posé sur un galet de marbre blanc",
+    annotation_caveat: "fondu à Bordeaux",
     page: "p. 05",
   },
   {

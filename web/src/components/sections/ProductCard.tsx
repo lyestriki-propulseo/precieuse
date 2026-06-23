@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { LuxeImage } from "@/components/luxe";
-import type { Product } from "@/lib/content/products";
+
+export type ProductCardVM = {
+  slug: string;
+  name: string;
+  tagline: string;
+  price: string;
+  image: string;
+  imageAlt: string;
+};
 
 type Props = {
-  product: Product;
+  product: ProductCardVM;
 };
 
 export function ProductCard({ product }: Props) {

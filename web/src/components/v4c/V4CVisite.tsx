@@ -40,7 +40,12 @@ function PlanSVG() {
   );
 }
 
-export function V4CVisite() {
+type VisiteVM = {
+  addressLines: string[];
+  text: string;
+};
+
+export function V4CVisite({ visite }: { visite: VisiteVM }) {
   return (
     <section className="relative bg-[var(--site-bg)] py-16 px-8 lg:px-16">
       <div className="absolute top-0 left-0 right-0 border-t-2 border-double border-[var(--site-text)]/15" />
@@ -56,14 +61,16 @@ export function V4CVisite() {
           </h2>
 
           <address className={`${caveat} text-[22px] text-[var(--site-caveat)] not-italic leading-[1.7] mb-6`}>
-            Rua da Boavista, 84<br />
-            1200-070 Lisboa<br />
-            sur rendez-vous, du mardi au samedi<br />
-            10h — 18h
+            {visite.addressLines.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < visite.addressLines.length - 1 ? <br /> : null}
+              </span>
+            ))}
           </address>
 
           <p className="font-[family-name:var(--font-inter)] text-[14px] font-light text-[var(--site-text)]/80 leading-relaxed mb-6 max-w-sm">
-            L&apos;atelier n&apos;est pas une boutique. C&apos;est un lieu de travail, ouvert à celles et ceux qui viennent avec une intention.
+            {visite.text}
           </p>
 
           <Link

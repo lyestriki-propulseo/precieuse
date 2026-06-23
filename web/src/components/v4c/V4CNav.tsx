@@ -3,19 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { logoForBrand } from "@/components/brand/brand";
+import { useBrand } from "@/components/brand/BrandProvider";
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
 
-const navLinks = [
-  { label: "La Collection", href: "/fr/collection" },
-  { label: "Le Carnet", href: "/fr/carnet" },
-  { label: "L'Atelier", href: "/fr/creatrice" },
-  { label: "Sur-Mesure", href: "/fr/sur-mesure" },
-];
+type NavLink = { label: string; href: string };
 
-export function V4CNav() {
+export function V4CNav({ links }: { links: NavLink[] }) {
   const pathname = usePathname();
+  const { brand } = useBrand();
+  const navLinks = links;
 
   return (
     <header className="fixed top-0 z-50 w-full bg-[var(--site-bg)]/95 backdrop-blur-sm border-b border-[var(--site-text)]/20">
@@ -26,12 +25,12 @@ export function V4CNav() {
           className="relative block transition-opacity hover:opacity-70"
         >
           <Image
-            src="/brand/logo.png"
-            alt="Précieuse — Joaillerie artisanale, Lisboa"
-            width={420}
-            height={140}
+            src={logoForBrand(brand)}
+            alt="Précieuse — Joaillerie artisanale, Bordeaux"
+            width={560}
+            height={200}
             priority
-            className="h-9 w-auto lg:h-10"
+            className="h-11 w-auto lg:h-12"
           />
         </Link>
 

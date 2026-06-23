@@ -33,35 +33,16 @@ function IconSceau() {
   );
 }
 
-type TrustItem = {
-  icon: React.ReactNode;
+type TrustItemVM = {
   titre: string;
   corps: string;
   annotation: string;
 };
 
-const ITEMS: TrustItem[] = [
-  {
-    icon: <IconEtoile />,
-    titre: "SAVOIR-FAIRE",
-    corps: "Atelier Lisboa, cire perdue",
-    annotation: "depuis 2019",
-  },
-  {
-    icon: <IconPaquet />,
-    titre: "LIVRAISON",
-    corps: "Coffret main, suivi inclus",
-    annotation: "partout en Europe",
-  },
-  {
-    icon: <IconSceau />,
-    titre: "GARANTIE",
-    corps: "À vie, gravure offerte",
-    annotation: "sans condition",
-  },
-];
+const ICONS = [<IconEtoile key="etoile" />, <IconPaquet key="paquet" />, <IconSceau key="sceau" />];
 
-export function V4CTrustStrip() {
+export function V4CTrustStrip({ items }: { items: TrustItemVM[] }) {
+  const ITEMS = items.map((it, i) => ({ ...it, icon: ICONS[i % ICONS.length] }));
   return (
     <section className="relative bg-[var(--site-bg)] py-14 px-8 lg:px-16 border-t-2 border-double border-[var(--site-text)]/15">
       <div className="mx-auto max-w-[1440px]">

@@ -2,7 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { MATIERES } from "@/lib/content/matieres";
+
+type MatiereVM = {
+  slug: string;
+  nom: string;
+  sous_titre: string;
+  description_courte: string;
+  image: string;
+  image_alt: string;
+  annotation_caveat: string;
+  page: string;
+};
 
 const garamond = "font-[family-name:var(--font-eb-garamond)]";
 const caveat = "font-[family-name:var(--font-caveat)]";
@@ -11,7 +21,8 @@ const inter = "font-[family-name:var(--font-inter)]";
 const REVEAL_BASE =
   "transition-all duration-[1100ms] ease-[cubic-bezier(0.32,0.72,0,1)]";
 
-export function V4CMatieresFull() {
+export function V4CMatieresFull({ matieres }: { matieres: MatiereVM[] }) {
+  const MATIERES = matieres;
   const sectionRef = useRef<HTMLElement>(null);
   const [titleIn, setTitleIn] = useState(false);
   const [cardsIn, setCardsIn] = useState(false);

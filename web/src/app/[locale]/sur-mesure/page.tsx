@@ -2,8 +2,10 @@ import Link from "next/link";
 import { Container, Heading, LuxeImage, Reveal, Section } from "@/components/luxe";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { BESPOKE_PROCESS } from "@/lib/content/process";
-import { SITE } from "@/lib/content/site";
+import { getProcess, getSiteSettings } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
+
+const L = "fr" as const;
 
 const ctaPrimary = cn(
   buttonVariants({ size: "lg" }),
@@ -15,12 +17,22 @@ const ctaGhost = cn(
 );
 
 export const metadata = {
-  title: "Sur-mesure — Précieuse",
+  title: "Sur-mesure",
   description:
     "Créer un bijou unique pensé ensemble, de la première esquisse au bijou final.",
 };
 
-export default function BespokePage() {
+export default async function BespokePage() {
+  const [process, settings] = await Promise.all([
+    getProcess(),
+    getSiteSettings(),
+  ]);
+  const BESPOKE_PROCESS = process.map((s) => ({
+    number: s.number,
+    title: pickLocale(s.title, L),
+    description: pickLocale(s.description, L),
+  }));
+  const whatsapp = settings.whatsapp ?? "";
   return (
     <>
       <Section spacing="default" tone="cream">
@@ -45,8 +57,8 @@ export default function BespokePage() {
             </div>
             <Reveal delay={0.2}>
               <LuxeImage
-                src="/images/atelier/esquisses-amethyste.jpg"
-                alt="Esquisses de bijoux et améthyste brute sur l'établi"
+                src="/images/real/bague-entouree-josephine.webp"
+                alt="Bague en or 18 carats, pierre entourée de diamants — création sur-mesure de l'atelier Précieuse, Bordeaux"
                 width={1080}
                 height={1440}
                 aspect="portrait"
@@ -90,8 +102,8 @@ export default function BespokePage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
             <Reveal>
               <LuxeImage
-                src="/images/atelier/dessin-aquarelle.jpg"
-                alt="Dessin aquarelle original — bijou sur-mesure"
+                src="/images/real/bague-pierre-aurore.webp"
+                alt="Bague Aurore en or 18 carats sur pierre — création sur-mesure de l'atelier Précieuse, Bordeaux"
                 width={1080}
                 height={1920}
                 aspect="portrait"
@@ -153,7 +165,7 @@ export default function BespokePage() {
                 Prendre rendez-vous
               </Link>
               <a
-                href={SITE.whatsapp}
+                href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={ctaGhost}

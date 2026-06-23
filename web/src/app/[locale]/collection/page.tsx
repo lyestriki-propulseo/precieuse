@@ -1,13 +1,28 @@
+import type { Metadata } from "next";
 import { Container, Heading, Reveal, Section } from "@/components/luxe";
 import { ProductCard } from "@/components/sections/ProductCard";
-import { PRODUCTS } from "@/lib/content/products";
+import { absoluteUrl } from "@/lib/seo";
+import { getPieces } from "@/sanity/lib/content";
+import { pickLocale } from "@/sanity/lib/i18n";
 
-export const metadata = {
-  title: "Collection — Précieuse",
-  description: "Cinq modèles intemporels en or 19kt et diamants GVS.",
+export const metadata: Metadata = {
+  title: "Collection",
+  description: "Cinq modèles intemporels en or 18kt et diamants GVS.",
+  alternates: { canonical: absoluteUrl("/fr/collection") },
 };
 
-export default function CollectionPage() {
+const L = "fr" as const;
+
+export default async function CollectionPage() {
+  const pieces = await getPieces();
+  const PRODUCTS = pieces.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    tagline: pickLocale(p.tagline, L),
+    price: pickLocale(p.priceLabel, L),
+    image: p.image.src,
+    imageAlt: pickLocale(p.image.alt, L),
+  }));
   return (
     <>
       <Section spacing="default" tone="cream">
@@ -19,7 +34,7 @@ export default function CollectionPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-foreground/70 mt-8 text-lg leading-relaxed font-light">
-              Chaque modèle est dessiné et fabriqué à la main, en or 19kt, avec
+              Chaque modèle est dessiné et fabriqué à la main, en or 18kt, avec
               des diamants GVS certifiés. À porter tels quels ou à
               personnaliser — pierre, métal, taille.
             </p>
